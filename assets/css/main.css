@@ -26,12 +26,14 @@ a:visited {
     height: 218px;
 }
 
+/*
 .page-enter-active,
 .page-leave-active {
-    transition: opacity .5s
+    transition: opacity 1s
 }
 
 .page-enter,
 .page-leave-active {
     opacity: 0
 }
+*/
