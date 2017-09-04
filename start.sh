@@ -1,3 +1,5 @@
 yarn
 
-nohup yarn run start > ssr.log &
+yarn run build
+
+nohup yarn run start-without-build > ssr.log &
