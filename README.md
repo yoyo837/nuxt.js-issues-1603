@@ -1,6 +1,6 @@
 # ydmap-ssr-portal
 
-> Nuxt.js project
+> 本项目是portal端的模板功能的SSR服务器渲染实现。
 
 ## Build Setup
 
