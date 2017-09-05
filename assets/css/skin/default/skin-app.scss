@@ -1,0 +1,70 @@
+// 此皮肤的基础样式
+body {
+    min-width: 320px;
+}
+
+body.bd-bg {
+    background-color: rgba(227, 227, 227, 0.45);
+}
+
+body.bd-bg .ctx-bg {
+    background-color: white;
+}
+
+a {
+    $linkColor: #48576a;
+    font-size: 14px;
+    color: $linkColor;
+    text-decoration: none;
+    outline: none;
+    &:visited {
+        color: $linkColor
+    }
+    &:hover {
+        color: #20a0ff;
+    }
+}
+
+.box {
+    padding: 1rem;
+}
+
+.box-mini {
+    padding: 8px;
+}
+
+.mint-toast,
+.mint-indicator-wrapper {
+    z-index: 2003;
+}
+
+.has-fixed-nav-header {
+    padding-top: 40px;
+}
+
+.fixed-bt {
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    button {
+        width: 95%
+    }
+    a {
+        display: block;
+        width: 100;
+    }
+    .el-button+.el-button,
+    button+button,
+    a+button,
+    a+a,
+    button+a {
+        margin: 5px 0 0 0;
+    }
+}
+
+@import './dialog.scss';
+@import './form.scss';
+@import './nav-panel-menu.scss';

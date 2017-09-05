@@ -1,52 +1,37 @@
 <template>
-  <div>
-    <nuxt></nuxt>
-    <my-footer></my-footer>
+  <div id="app">
+    <SkinApp>
+      <transition>
+        <nuxt></nuxt>
+      </transition>
+    </SkinApp>
   </div>
 </template>
 
 <script>
-import MyFooter from '../components/Footer.vue'
+// import SkinApp from '@skin/components/SkinApp.vue'
+import SkinApp from '@/layouts/skin/default/components/SkinApp.vue'
+// import SkinApp from '#skin/components/SkinApp.vue'
+import global from '@/components/global'
 
 export default {
+  name: 'app',
+  mounted() {
+    global(this.$router)
+  },
   components: {
-    MyFooter
+    SkinApp
   }
 }
 </script>
 
-<style>
-.container
-{
-  margin: 0;
-  width: 100%;
-  padding: 100px 0;
-  text-align: center;
-}
+<style lang="scss">
+@import '~@/assets/css/skin/default/skin-app.scss';
 
-.button, .button:visited
-{
-  display: inline-block;
-  color: #3B8070;
-  letter-spacing: 1px;
-  background-color: #fff;
-  border: 2px solid #3B8070;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 15px 45px;
-}
-
-.button:hover, .button:focus
-{
-  color: #fff;
-  background-color: #3B8070;
-}
-
-.title
-{
-  color: #505153;
-  font-weight: 300;
-  font-size: 2.5em;
-  margin: 0;
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
 }
 </style>

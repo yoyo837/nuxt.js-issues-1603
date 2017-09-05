@@ -1,4 +1,7 @@
 module.exports = {
+  router: {
+    mode: 'hash'
+  },
   /*
   ** Headers of the page
   */
@@ -27,7 +30,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~assets/css/main.css'],
+  css: ['~assets/css/app.scss'],
   /*
   ** Customize the progress-bar color
   */

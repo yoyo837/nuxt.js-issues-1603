@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <link rel="stylesheet" href="//cdnstatic.ydmap.com.cn/static/normalize.css/7.0.0/normalize.css">
+  {{ HEAD }}
+  <!--[if lt IE 9]>
+      <script src="/static/js/browser-upgrade-tips.js"></script>
+  <![endif]-->
+</head>
+
+<body {{ BODY_ATTRS }}>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <!-- 由于开发需要支持Promise，但所有IE都不支持，故需要添加polyfill，又由于ie10及以上不再支持条件注释了，所以使用auto版本 -->
+  <!-- <script src="//cdnstatic.ydmap.com.cn/static/es6-promise/4.1.1/es6-promise.min.js"></script> -->
+  <script src="//cdnstatic.ydmap.com.cn/static/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+  <!-- 这里的注入顺序需要优化 -->
+  {{ APP }}
+</body>
+
+</html>

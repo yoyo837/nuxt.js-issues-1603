@@ -1,0 +1,18 @@
+// 全局样式，所有皮肤共用的基础样式，只能放置皮肤无关的样式
+// 元素重置
+* {
+  box-sizing: border-box;
+}
+
+// 修饰样式
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
