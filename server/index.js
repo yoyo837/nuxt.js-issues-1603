@@ -15,6 +15,9 @@ config.dev = !(app.env === 'production')
 
 const pagePath = 'pages'
 fs.readdirSync(pagePath).forEach(file => {
+  if (file.toLowerCase() === '.gitkeep') {
+    return
+  }
   fsextra.removeSync(`${pagePath}/${file}`)
 })
 

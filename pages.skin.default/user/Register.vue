@@ -29,8 +29,8 @@
 
 <script>
 import Vue from 'vue'
-import utils from '../../../../../components/utils'
-import VerifyComp from '../../PictureVerify'
+import utils from '../../components/utils'
+import VerifyComp from '../../layouts/skin.default/components/PictureVerify'
 // 引入全部
 // import ElementUI from 'element-ui'
 // Vue.use(ElementUI)

@@ -38,10 +38,10 @@
 <script>
 import _ from 'lodash'
 import Vue from 'vue'
-import utils from '../../../../../components/utils'
+import utils from '../../components/utils'
 import { Row, Col, Dialog } from 'element-ui'
 import { Header, Button } from 'mint-ui'
-import PageContainer from '../../PageContainer'
+import PageContainer from '../../layouts/skin.default/components/PageContainer'
 
 Vue.component(Dialog.name, Dialog)
 Vue.component(Row.name, Row)

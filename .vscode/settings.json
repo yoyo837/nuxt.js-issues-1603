@@ -18,7 +18,8 @@
     "**/dist": true,
     "**/build": true,
     "**/.nuxt": true,
-    "**/.vscode": true
+    "**/.vscode": true,
+    "**/pages": true
   },
   "TodoParser": {
     "folderExclude": ["node_modules", ".vscode", ".svn"]

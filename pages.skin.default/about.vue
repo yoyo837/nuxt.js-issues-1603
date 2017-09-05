@@ -32,7 +32,7 @@
 <script>
 import Vue from 'vue'
 import { Row, Col } from 'element-ui'
-import PageContainer from '../PageContainer'
+import PageContainer from '../layouts/skin.default/components/PageContainer'
 Vue.component(Row.name, Row)
 Vue.component(Col.name, Col)
 

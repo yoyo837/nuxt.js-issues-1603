@@ -22,7 +22,7 @@
 
 <script>
 import Vue from 'vue'
-import util from '../../../../../components/utils'
+import util from '../../components/utils'
 // 引入全部
 // import ElementUI from 'element-ui'
 // Vue.use(ElementUI)

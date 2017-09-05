@@ -40,10 +40,10 @@
 import _ from 'lodash'
 import moment from 'moment'
 import Vue from 'vue'
-import ProfilePanel from '../../ProfilePanel'
-import DatetimePicker from '../../DatetimePicker'
-import bdStyleMixin, { DefaultConfig } from '../../../mixin/body-style'
-import Picker from '../../Picker'
+import ProfilePanel from '../../layouts/skin.default/components/ProfilePanel'
+import DatetimePicker from '../../layouts/skin.default/components/DatetimePicker'
+import bdStyleMixin, { DefaultConfig } from '../../layouts/skin.default/mixins/body-style'
+import Picker from '../../layouts/skin.default/components/Picker'
 import { Form, FormItem, Button, Input, RadioGroup, Radio } from 'element-ui'
 
 Vue.component(Form.name, Form)

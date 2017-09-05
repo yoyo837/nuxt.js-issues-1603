@@ -15,9 +15,9 @@
 <script>
 // import _ from 'lodash'
 import Vue from 'vue'
-import popop, { TOAST_DURATION } from '../../../../../components/popup'
+import popop, { TOAST_DURATION } from '../../components/popup'
 import { Row, Col, Button, Tag } from 'element-ui'
-import PageContainer from '../../PageContainer'
+import PageContainer from '../../layouts/skin.default/components/PageContainer'
 
 Vue.component(Tag.name, Tag)
 Vue.component(Row.name, Row)
