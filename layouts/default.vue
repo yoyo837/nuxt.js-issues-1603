@@ -10,7 +10,7 @@
 
 <script>
 // import SkinApp from '@skin/components/SkinApp.vue'
-import SkinApp from '@/layouts/skin/default/components/SkinApp.vue'
+import SkinApp from '@/layouts/skin.default/components/SkinApp.vue'
 // import SkinApp from '#skin/components/SkinApp.vue'
 import global from '@/components/global'
 
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@/assets/css/skin/default/skin-app.scss';
+@import '~@/assets/css/skin.default/skin-app.scss';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

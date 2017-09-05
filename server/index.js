@@ -1,5 +1,9 @@
+import fs from 'fs'
+import fsextra from 'fs-extra'
+// import rimraf from 'rimraf'
 import Koa from 'koa'
 import { Nuxt, Builder } from 'nuxt'
+import layouts from '../layouts'
 
 const app = new Koa()
 const host = process.env.HOST || '127.0.0.1'
@@ -8,6 +12,16 @@ const port = process.env.PORT || 9086
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
+
+const pagePath = 'pages'
+fs.readdirSync(pagePath).forEach(file => {
+  fsextra.removeSync(`${pagePath}/${file}`)
+})
+
+fsextra.copySync(`${pagePath}.${layouts.skinName}`, pagePath)
+// rimraf(path.join(__dirname, '../pages/*'), err => {
+//   console.log(err)
+// })
 
 // Instantiate nuxt.js
 const nuxt = new Nuxt(config)
