@@ -15,6 +15,7 @@
   "dependencies": {
     "cross-env": "^5.0.5",
     "koa": "^2.3.0",
+    "lodash": "^4.17.4",
     "nuxt": "^1.0.0-rc8",
     "source-map-support": "^0.4.17"
   },
