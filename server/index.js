@@ -56,7 +56,9 @@ app.use(router.allowedMethods({
 router.post('/sync', function(ctx, next) {
   // console.log(ctx.request.body)
   ctx.status = 200
-  ctx.response.body = {}
+  ctx.response.body = {
+    result: 123
+  }
 })
 
 router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, next) {
