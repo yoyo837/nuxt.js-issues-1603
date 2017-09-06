@@ -50,11 +50,12 @@ app.use(router.allowedMethods({
   methodNotAllowed: () => new Boom.methodNotAllowed()
 }))
 
-router.post('/sync', async function(ctx, next) {
-  ctx.response.body = '{}'
+router.post('/sync', function(ctx, next) {
+  ctx.status = 200
+  ctx.response.body = {}
 })
 
-router.get('/', async function(ctx, next) {
+router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
   await new Promise((resolve, reject) => {
