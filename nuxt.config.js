@@ -9,17 +9,23 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'starter',
+    title: 'Portal',
     meta: [
       {
+        hid: 'compatible',
+        'http-equiv': 'X-UA-Compatible',
+        content: 'IE=edge, chrome=1'
+      }, {
+        hid: 'charset',
         charset: 'utf-8'
       }, {
+        hid: 'viewport',
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
       }, {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt.js project'
+        content: 'ydmap portal ssr project'
       }
     ],
     link: [
