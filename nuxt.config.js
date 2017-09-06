@@ -1,7 +1,18 @@
 const path = require('path')
-const layouts = require('./layouts').default
 
 module.exports = {
+  skin: {
+    name: 'default',
+    getPagesPath() {
+      return path.join(this.options.rootDir, `pages.skin.${this.options.skin.name}`)
+    },
+    getLayoutsPath() {
+      return path.join(this.options.rootDir, `layouts/skin.${this.options.skin.name}`)
+    },
+    getCssPath() {
+      return path.join(this.options.rootDir, `assets/css/skin.${this.options.skin.name}`)
+    }
+  },
   router: {
     mode: 'hash'
   },
@@ -12,9 +23,9 @@ module.exports = {
     // watch: [`pages.${layouts.skinName}/**/*`], 这里watch的内容不会重新初始化容器，只会处理vue源码
     extend(config, {isClient}) {
       const alias = config.resolve.alias = config.resolve.alias || {}
-      alias['@skinPages'] = path.join(this.options.rootDir, `pages.${layouts.skinName}`)
-      alias['@skinLayouts'] = path.join(this.options.rootDir, `layouts/${layouts.skinName}`)
-      alias['@skinCss'] = path.join(this.options.rootDir, `assets/css/${layouts.skinName}`)
+      alias['@skinPages'] = this.options.skin.getPagesPath.apply(this)
+      alias['@skinLayouts'] = this.options.skin.getLayoutsPath.apply(this)
+      alias['@skinCss'] = this.options.skin.getCssPath.apply(this)
     }
   },
   /*

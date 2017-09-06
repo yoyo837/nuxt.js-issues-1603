@@ -6,7 +6,6 @@ import KoaRouter from 'koa-router'
 import Boom from 'boom'
 import bodyParser from 'koa-bodyparser'
 import { Nuxt, Builder } from 'nuxt'
-import layouts from '../layouts'
 
 const app = new Koa()
 const router = new KoaRouter()
@@ -25,13 +24,13 @@ fs.readdirSync(pagePath).forEach(file => {
   fsextra.removeSync(`${pagePath}/${file}`)
 })
 
-fsextra.copySync(`${pagePath}.${layouts.skinName}`, pagePath)
+// Instantiate nuxt.js
+const nuxt = new Nuxt(config)
+
+fsextra.copySync(config.skin.getPagesPath.apply(nuxt), pagePath)
 // rimraf(path.join(__dirname, '../pages/*'), err => {
 //   console.log(err)
 // })
-
-// Instantiate nuxt.js
-const nuxt = new Nuxt(config)
 
 // Build in development
 if (config.dev) {
