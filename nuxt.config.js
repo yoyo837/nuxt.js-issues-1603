@@ -27,8 +27,12 @@ module.exports = {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico'
+      }, {
+        rel: 'stylesheet',
+        href: '//cdnstatic.ydmap.com.cn/static/normalize.css/7.0.0/normalize.css'
       }
-    ]
+    ],
+    script: []
   },
   /*
    ** Global CSS
