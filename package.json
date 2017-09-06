@@ -14,10 +14,12 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "boom": "^5.2.0",
     "cross-env": "^5.0.5",
     "element-ui": "^1.4.3",
     "fs-extra": "^4.0.1",
     "koa": "^2.3.0",
+    "koa-router": "^7.2.1",
     "lodash": "^4.17.4",
     "mint-ui": "^2.2.9",
     "moment": "^2.18.1",
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
+    "@types/koa-router": "^7.0.23",
     "babel-eslint": "^7.2.3",
     "babel-plugin-component": "^0.10.0",
     "babel-preset-stage-2": "^6.24.1",

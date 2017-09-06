@@ -2,10 +2,13 @@ import fs from 'fs'
 import fsextra from 'fs-extra'
 // import rimraf from 'rimraf'
 import Koa from 'koa'
+import KoaRouter from 'koa-router'
+import Boom from 'boom'
 import { Nuxt, Builder } from 'nuxt'
 import layouts from '../layouts'
 
 const app = new Koa()
+const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
 
@@ -33,15 +36,28 @@ const nuxt = new Nuxt(config)
 if (config.dev) {
   const builder = new Builder(nuxt)
   builder.build().catch(e => {
-    console.error(e) // eslint-disable-line no-console
+    /* eslint-disable no-console */
+    console.error(e)
     process.exit(1)
   })
 }
 
-app.use(ctx => {
+app.use(router.routes())
+app.use(router.allowedMethods({
+  throw: true,
+  /* eslint-disable new-cap */
+  notImplemented: () => new Boom.notImplemented(),
+  methodNotAllowed: () => new Boom.methodNotAllowed()
+}))
+
+router.post('/sync', async function(ctx, next) {
+  ctx.response.body = '{}'
+})
+
+router.get('/', async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
-  return new Promise((resolve, reject) => {
+  await new Promise((resolve, reject) => {
     ctx.res.on('close', resolve)
     ctx.res.on('finish', resolve)
     nuxt.render(ctx.req, ctx.res, promise => {
@@ -52,5 +68,5 @@ app.use(ctx => {
 })
 
 app.listen(port, host)
-// eslint-disable-line no-console
+/* eslint-disable no-console */
 console.log(`Server listening on ${host}:${port}`)
