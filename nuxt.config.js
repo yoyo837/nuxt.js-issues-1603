@@ -1,13 +1,21 @@
-// const layouts = require('./layouts').default
+const path = require('path')
+const layouts = require('./layouts').default
 
 module.exports = {
   router: {
     mode: 'hash'
   },
   build: {
-    vendor: ['element-ui', 'mint-ui', 'axios', 'moment', 'lodash']
-    // 这里watch的内容不会重新初始化容器，只会处理vue源码
-    // watch: [`pages.${layouts.skinName}/**/*`]
+    vendor: [
+      'element-ui', 'mint-ui', 'axios', 'moment', 'lodash'
+    ],
+    // watch: [`pages.${layouts.skinName}/**/*`], 这里watch的内容不会重新初始化容器，只会处理vue源码
+    extend(config, {isClient}) {
+      const alias = config.resolve.alias = config.resolve.alias || {}
+      alias['@skinPages'] = path.join(this.options.rootDir, `pages.${layouts.skinName}`)
+      alias['@skinLayouts'] = path.join(this.options.rootDir, `layouts/${layouts.skinName}`)
+      alias['@skinCss'] = path.join(this.options.rootDir, `assets/css/${layouts.skinName}`)
+    }
   },
   /*
    ** Headers of the page

@@ -37,8 +37,8 @@
 import Vue from 'vue'
 import { Row, Col } from 'element-ui'
 import { Header, Button } from 'mint-ui'
-import PageContainer from '../../layouts/skin.default/components/PageContainer'
-import bdStyleMixin from '../../layouts/skin.default/mixins/body-style'
+import PageContainer from '@skinLayouts/components/PageContainer'
+import bdStyleMixin from '@skinLayouts/mixins/body-style'
 
 Vue.component(Row.name, Row)
 Vue.component(Col.name, Col)
