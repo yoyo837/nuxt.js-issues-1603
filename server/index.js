@@ -4,6 +4,7 @@ import fsextra from 'fs-extra'
 import Koa from 'koa'
 import KoaRouter from 'koa-router'
 import Boom from 'boom'
+import bodyParser from 'koa-bodyparser'
 import { Nuxt, Builder } from 'nuxt'
 import layouts from '../layouts'
 
@@ -42,6 +43,8 @@ if (config.dev) {
   })
 }
 
+app.use(bodyParser())
+
 app.use(router.routes())
 app.use(router.allowedMethods({
   throw: true,
@@ -51,6 +54,7 @@ app.use(router.allowedMethods({
 }))
 
 router.post('/sync', function(ctx, next) {
+  // console.log(ctx.request.body)
   ctx.status = 200
   ctx.response.body = {}
 })
