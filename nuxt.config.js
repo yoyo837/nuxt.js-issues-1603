@@ -1,9 +1,13 @@
+// const layouts = require('./layouts').default
+
 module.exports = {
   router: {
     mode: 'hash'
   },
   build: {
     vendor: ['element-ui', 'mint-ui', 'axios', 'moment', 'lodash']
+    // 这里watch的内容不会重新初始化容器，只会处理vue源码
+    // watch: [`pages.${layouts.skinName}/**/*`]
   },
   /*
    ** Headers of the page
