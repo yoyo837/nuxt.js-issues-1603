@@ -5,6 +5,8 @@ import Koa from 'koa'
 import KoaRouter from 'koa-router'
 import Boom from 'boom'
 import bodyParser from 'koa-bodyparser'
+import c2k from 'koa2-connect'
+import proxy from 'http-proxy-middleware'
 import { Nuxt, Builder } from 'nuxt'
 
 const app = new Koa()
@@ -33,7 +35,16 @@ fsextra.copySync(config.skin.getPagesPath.apply(nuxt), pagePath)
 // })
 
 // Build in development
+const doAPIReg = /\.do$/
+const cp = c2k(proxy({
+  target: 'http://localhost:8082/portal/'
+}))
+
 if (config.dev) {
+  router.get(doAPIReg, cp)
+
+  router.post(doAPIReg, cp)
+
   const builder = new Builder(nuxt)
   builder.build().catch(e => {
     /* eslint-disable no-console */
