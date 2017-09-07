@@ -1,21 +1,25 @@
+import _ from 'lodash'
 import request from 'request'
 
+const GET = 'get'
+const POST = 'post'
+
 function core(method, url, params, fn) {
-  method = method || 'get'
+  method = method || GET
   if (typeof params === 'function') {
     fn = params
     params = {}
   }
-  request[method]({
+  const option = {
     url,
-    qs: method === 'get'
-      ? params
-      : null,
-    body: method === 'post'
-      ? params
-      : null,
     json: true
-  }, function(e) {
+  }
+  if (method === GET) {
+    _.assign(option, {qs: params})
+  } else if (method === POST) {
+    _.assign(option, {body: params})
+  }
+  request[method](option, function (e) {
     if (e) {
       console.log(e)
     }
@@ -30,6 +34,6 @@ export default {
     return core(null, url, params, fn)
   },
   post(url, params, fn) {
-    return core('post', url, params, fn)
+    return core(POST, url, params, fn)
   }
 }
