@@ -24,7 +24,7 @@
     "lodash": "^4.17.4",
     "mint-ui": "^2.2.9",
     "moment": "^2.18.1",
-    "nuxt": "^1.0.0-rc8"
+    "nuxt": "^1.0.0-rc9"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
