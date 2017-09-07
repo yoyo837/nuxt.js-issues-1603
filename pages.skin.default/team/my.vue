@@ -3,7 +3,7 @@
     <ProfilePanel :pic-path="serverData.loginAccountVo.picPath">
       {{serverData.loginAccountVo.realName}}/{{serverData.loginAccountVo.mobile}}
     </ProfilePanel>
-    <router-link to="/user/account" v-for="team in serverData.teamList" :key="team.id">
+    <nuxt-link to="/user/account" v-for="team in serverData.teamList" :key="team.id">
       <el-row class="nav-panel">
         <el-col :span="20">
           <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/m_zh.png`">
@@ -13,14 +13,14 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
+    </nuxt-link>
     <div class="fixed-bt">
-      <router-link to="/team/new">
+      <nuxt-link to="/team/new">
         <el-button type="danger">创建团队</el-button>
-      </router-link>
-      <router-link to="/team/search">
+      </nuxt-link>
+      <nuxt-link to="/team/search">
         <el-button type="primary">查找团队</el-button>
-      </router-link>
+      </nuxt-link>
     </div>
   </div>
 </template>

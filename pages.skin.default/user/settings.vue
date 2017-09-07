@@ -1,6 +1,6 @@
 <template>
   <PageContainer doc-title="设置" :nav-header="true" nav-header-back-path="/user/my">
-    <router-link to="/user/changepwd">
+    <nuxt-link to="/user/changepwd">
       <el-row class="nav-panel">
         <el-col :span="20">
           <span>修改密码</span>
@@ -9,8 +9,8 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
-    <router-link to="/user/profile">
+    </nuxt-link>
+    <nuxt-link to="/user/profile">
       <el-row class="nav-panel">
         <el-col :span="20">
           <span>个人资料</span>
@@ -19,8 +19,8 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
-    <router-link to="/user/aboutus">
+    </nuxt-link>
+    <nuxt-link to="/user/aboutus">
       <el-row class="nav-panel nav-panel-mg">
         <el-col :span="20">
           <span>关于我们</span>
@@ -29,7 +29,7 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
+    </nuxt-link>
   </PageContainer>
 </template>
 

@@ -15,7 +15,7 @@
       </el-form-item>
     </el-form>
     <div class="text-right">
-      <router-link to="/user/forgot">找回密码</router-link>
+      <nuxt-link to="/user/forgot">找回密码</nuxt-link>
     </div>
   </div>
 </template>

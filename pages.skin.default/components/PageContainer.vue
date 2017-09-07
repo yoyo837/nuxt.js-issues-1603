@@ -1,9 +1,9 @@
 <template>
   <div v-doc-title.sync="docTitle" :class="{'has-fixed-nav-header': navHeader}">
     <mt-header fixed v-if="navHeader">
-      <router-link :to="navHeaderBackPath" v-if="navHeaderBackPath != null" slot="left">
+      <nuxt-link :to="navHeaderBackPath" v-if="navHeaderBackPath != null" slot="left">
         <mt-button icon="back"></mt-button>
-      </router-link>
+      </nuxt-link>
     </mt-header>
     <slot></slot>
   </div>

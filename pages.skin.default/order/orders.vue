@@ -5,7 +5,7 @@
       <div>暂无订单!</div>
     </div>
     <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
-      <router-link tag="div" :to="`/order/${item.id}`" v-for="item in list" :key="item.id" class="order-item">
+      <nuxt-link tag="div" :to="`/order/${item.id}`" v-for="item in list" :key="item.id" class="order-item">
         <el-row class="nav-panel nav-panel-mini order-header">
           <el-col :span="8">
             <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/deal_h.png`">{{item.id}}
@@ -33,7 +33,7 @@
             </template>
           </el-col>
         </el-row>
-      </router-link>
+      </nuxt-link>
     </mt-loadmore>
   </PageContainer>
 </template>

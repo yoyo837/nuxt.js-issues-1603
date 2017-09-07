@@ -8,12 +8,12 @@
         {{serverData.realName}}/{{serverData.mobile}}
       </template>
       <template slot="right" v-if="serverData.isFee">
-        <router-link to="/user/sign">
+        <nuxt-link to="/user/sign">
           <el-button type="primary" size="mini">签到</el-button>
-        </router-link>
+        </nuxt-link>
       </template>
     </ProfilePanel>
-    <router-link to="/user/account">
+    <nuxt-link to="/user/account">
       <el-row class="nav-panel">
         <el-col :span="20">
           <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/m_zh.png`">
@@ -23,8 +23,8 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
-    <router-link to="/orders">
+    </nuxt-link>
+    <nuxt-link to="/orders">
       <el-row class="nav-panel">
         <el-col :span="20">
           <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/m_order.png`">
@@ -34,8 +34,8 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
-    <router-link to="/team/my">
+    </nuxt-link>
+    <nuxt-link to="/team/my">
       <el-row class="nav-panel">
         <el-col :span="20">
           <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/m_team.png`">
@@ -45,8 +45,8 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
-    <router-link to="/user/events">
+    </nuxt-link>
+    <nuxt-link to="/user/events">
       <el-row class="nav-panel">
         <el-col :span="20">
           <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/m_active.png`">
@@ -56,8 +56,8 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
-    <router-link to="/user/settings">
+    </nuxt-link>
+    <nuxt-link to="/user/settings">
       <el-row class="nav-panel">
         <el-col :span="20">
           <img :src="`${CDN_STATIC_HOST}/themes/mobile/common/images/m_setup.png`">
@@ -67,7 +67,7 @@
           <i class="el-icon-arrow-right"></i>
         </el-col>
       </el-row>
-    </router-link>
+    </nuxt-link>
     <div class="fixed-bt">
       <el-button type="danger" @click="toLogout">退出/切换账号</el-button>
     </div>
