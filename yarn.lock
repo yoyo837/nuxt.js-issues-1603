@@ -42,6 +42,12 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
+"@types/form-data@*":
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/@types/form-data/download/@types/form-data-2.2.0.tgz#a98aac91dc99857b6af24caef7ca6df302f31565"
+  dependencies:
+    "@types/node" "*"
+
 "@types/http-assert@*":
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/@types/http-assert/download/@types/http-assert-1.2.0.tgz#0b82993036e86c6ff2944e033b73b57e85ccdcab"
@@ -78,6 +84,13 @@
 "@types/node@*":
   version "8.0.26"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-8.0.26.tgz#4d58be925306fd22b1141085535a0268b8beb189"
+
+"@types/request@^2.0.3":
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/@types/request/download/@types/request-2.0.3.tgz#bdf0fba9488c822f77e97de3dd8fe357b2fb8c06"
+  dependencies:
+    "@types/form-data" "*"
+    "@types/node" "*"
 
 "@types/serve-static@*":
   version "1.7.32"

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SkinApp from '@skinPages/components/SkinApp'
+import SkinApp from '@/pages/components/SkinApp'
 import global from '@/components/global'
 
 export default {
