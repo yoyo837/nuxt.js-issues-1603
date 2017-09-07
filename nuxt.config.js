@@ -20,6 +20,19 @@ module.exports = {
     '~plugins/global'
   ],
   build: {
+    babel: {
+      plugins: [
+        // 如果使用babel-plugin-component引用成功，则下面全局css则不需要引入
+        // (Multiple module with babel-plugin-component)https://github.com/nuxt/nuxt.js/issues/1603
+        // ['component', [{
+        //   libraryName: 'element-ui',
+        //   styleLibraryName: 'theme-default'
+        // }, {
+        //   libraryName: 'mint-ui',
+        //   style: true
+        // }]]
+      ]
+    },
     vendor: [
       'element-ui', 'mint-ui', 'axios', 'moment', 'lodash'
     ],
@@ -69,7 +82,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['~assets/css/app.scss'],
+  css: [
+    'element-ui/lib/theme-default/index.css', // 如果使用babel-plugin-component引用成功，则这里不需要
+    'mint-ui/lib/style.css', // 如果使用babel-plugin-component引用成功，则这里不需要
+    '~assets/css/app.scss'
+  ],
   /*
    ** Customize the progress-bar color
    */
