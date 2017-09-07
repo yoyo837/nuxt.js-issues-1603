@@ -8,5 +8,6 @@ Vue.prototype.$http = ajax
 Vue.prototype.CDN_STATIC_HOST = utils.CDN_STATIC_HOST
 
 export default function (router) {
+  console.log(router)
   ajax.setRouter(router)
 }

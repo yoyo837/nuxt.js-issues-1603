@@ -10,11 +10,11 @@
 
 <script>
 import SkinApp from '@skinPages/components/SkinApp'
-import global from '@/plugins/global'
+import global from '@/components/global'
 
 export default {
   name: 'app',
-  mounted() {
+  beforeMount() {
     global(this.$router)
   },
   components: {
