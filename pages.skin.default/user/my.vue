@@ -78,8 +78,8 @@
 import _ from 'lodash'
 import Vue from 'vue'
 import { Row, Col, Button } from 'element-ui'
-import bdStyleMixin, { DefaultConfig } from '@skinLayouts/mixins/body-style'
-import ProfilePanel from '@skinLayouts/components/ProfilePanel'
+import bdStyleMixin, { DefaultConfig } from '../mixins/body-style'
+import ProfilePanel from '../components/ProfilePanel'
 Vue.component(Row.name, Row)
 Vue.component(Col.name, Col)
 Vue.component(Button.name, Button)

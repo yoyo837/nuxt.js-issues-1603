@@ -41,7 +41,7 @@ import Vue from 'vue'
 import utils from '../../components/utils'
 import { Row, Col, Dialog } from 'element-ui'
 import { Header, Button } from 'mint-ui'
-import PageContainer from '@skinLayouts/components/PageContainer'
+import PageContainer from '../components/PageContainer'
 
 Vue.component(Dialog.name, Dialog)
 Vue.component(Row.name, Row)

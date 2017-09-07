@@ -17,7 +17,7 @@
 import Vue from 'vue'
 import popop, { TOAST_DURATION } from '../../components/popup'
 import { Row, Col, Button, Tag } from 'element-ui'
-import PageContainer from '@skinLayouts/components/PageContainer'
+import PageContainer from '../components/PageContainer'
 
 Vue.component(Tag.name, Tag)
 Vue.component(Row.name, Row)

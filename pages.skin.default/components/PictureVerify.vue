@@ -20,9 +20,9 @@
 
 <script>
 import Vue from 'vue'
-import popup from '../../../components/popup'
-import utils from '../../../components/utils'
-import store from '../../../components/store'
+import popup from '../../components/popup'
+import utils from '../../components/utils'
+import store from '../../components/store'
 import { Form, FormItem, Button, Row, Col, Dialog } from 'element-ui'
 Vue.component(Dialog.name, Dialog)
 Vue.component(Form.name, Form)

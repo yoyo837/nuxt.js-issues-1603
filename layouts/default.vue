@@ -9,9 +9,7 @@
 </template>
 
 <script>
-// import SkinApp from '@skin/components/SkinApp.vue'
-import SkinApp from '@skinLayouts/components/SkinApp.vue'
-// import SkinApp from '#skin/components/SkinApp.vue'
+import SkinApp from '@skinPages/components/SkinApp.vue'
 import global from '@/components/global'
 
 export default {

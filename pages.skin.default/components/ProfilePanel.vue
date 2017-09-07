@@ -18,7 +18,7 @@
 <script>
 // import _ from 'lodash'
 import Vue from 'vue'
-import utils from '../../../components/utils'
+import utils from '../../components/utils'
 import { Row, Col } from 'element-ui'
 Vue.component(Row.name, Row)
 Vue.component(Col.name, Col)
