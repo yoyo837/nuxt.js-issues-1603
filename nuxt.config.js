@@ -16,6 +16,9 @@ module.exports = {
   router: {
     mode: 'hash'
   },
+  plugins: [
+    '~plugins/global'
+  ],
   build: {
     vendor: [
       'element-ui', 'mint-ui', 'axios', 'moment', 'lodash'

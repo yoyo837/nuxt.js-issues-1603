@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import SkinApp from '@skinPages/components/SkinApp.vue'
-import global from '@/components/global'
+import SkinApp from '@skinPages/components/SkinApp'
+import global from '@/plugins/global'
 
 export default {
   name: 'app',
