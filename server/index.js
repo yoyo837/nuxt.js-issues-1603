@@ -64,7 +64,7 @@ app.use(router.allowedMethods({
 }))
 
 router.post('/sync', function(ctx, next) {
-  // console.log(ctx.request.body)
+  console.log('收到同步请求 ---> ', ctx.request.body)
   ctx.status = 200
   ctx.response.body = {
     result: 123
