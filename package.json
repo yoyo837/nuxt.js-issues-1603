@@ -26,7 +26,7 @@
     "lodash": "^4.17.4",
     "mint-ui": "^2.2.9",
     "moment": "^2.18.1",
-    "nuxt": "^1.0.0-rc9",
+    "nuxt": "1.0.0-rc11",
     "request": "^2.81.0"
   },
   "devDependencies": {
