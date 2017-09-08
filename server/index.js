@@ -39,7 +39,7 @@ function nuxtBuild() {
     nuxt = innerNuxt
   }
 
-  const pagePath = path.join(innerNuxt.options.rootDir, '../pages') // nuxt的pages页面目录
+  const pagePath = path.join(innerNuxt.options.rootDir, 'pages') // nuxt的pages页面目录
   svfs.emptyDir(pagePath) // 清空
   svfs.copy(config.skin.getPagesPath.apply(innerNuxt), pagePath) // 复制新的
   // svfs.copy('pagestest', 'pages') // 复制新的
