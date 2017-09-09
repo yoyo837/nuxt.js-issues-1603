@@ -31,9 +31,11 @@ svfs.removeFileFromDir('.', file => {
   function nuxtBuild() {
     // isBuilding = true
     if (nuxt) {
-      config.build.buildDir = `${nuxt.options.buildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
+      const bd = nuxt.options.buildDir
+      const newBd = bd.substr(bd.lastIndexOf(path.sep) + 1)
+      config.build.buildDir = path.join(nuxt.options.rootDir, `${newBd.split(Separator)[0]}-${++buildIndex}`) // 换一个目录
     }
-    console.log('nuxt buildDir:', config.build.buildDir)
+    console.log('nuxt buildDir to', config.build.buildDir)
     const innerNuxt = new Nuxt(config) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
     if (nuxt == null) { // 初始化的时候第一次没有，直接赋值
       nuxt = innerNuxt
@@ -41,13 +43,13 @@ svfs.removeFileFromDir('.', file => {
 
     const pagePath = path.join(innerNuxt.options.rootDir, 'pages') // nuxt的pages页面目录
     // 清空旧的复制新的
-    svfs.emptyDir(pagePath).catch(e => {
-      console.log(e)
-    }).then(svfs.copy(config.skin.getPagesPath.apply(innerNuxt), pagePath)).catch(e => {
-      console.log(e)
+    svfs.emptyDir(pagePath).then(() => {
+      return svfs.copy(config.skin.getPagesPath.apply(innerNuxt), pagePath)
     }).then(() => {
+      console.log('build start...')
+      console.log(svfs.readdir(pagePath))
       const builder = new Builder(innerNuxt)
-      builder.build().then(() => {
+      return builder.build().then(() => {
         if (nuxt === innerNuxt) {
         } else {
           const temp = nuxt
@@ -55,13 +57,13 @@ svfs.removeFileFromDir('.', file => {
           temp.close()
         }
         // isBuilding = false
+        console.log('')
         console.log('Build completed!')
-      }).catch(e => {
-        console.error(e)
-        process.exit(1)
       })
     }).catch(e => {
-      console.log(e)
+      console.log('异常啦')
+      console.error(e)
+      // process.exit(1)
     })
   }
 
@@ -114,4 +116,6 @@ svfs.removeFileFromDir('.', file => {
 
   app.listen(port, host)
   console.log(`Server listening on ${host}:${port}`)
+}).catch(e => {
+  console.error(e)
 })

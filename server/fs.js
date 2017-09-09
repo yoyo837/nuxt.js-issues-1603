@@ -1,7 +1,25 @@
 import fs from 'fs'
+import path from 'path'
 import fsextra from 'fs-extra'
 
 export default {
+  /**
+   * 显示目录明显
+   * @param {string} dir
+   */
+  readdir(dir) {
+    let children = []
+    fs.readdirSync(dir).forEach(filename => {
+      const fPath = `${dir}${path.sep}${filename}`
+      const stat = fs.statSync(fPath)
+      if (stat && stat.isDirectory()) {
+        children = children.concat(this.readdir(fPath))
+      } else {
+        children.push(fPath)
+      }
+    })
+    return children
+  },
   /**
    * 创建目录，如果不存在
    * @param {string} dir
@@ -52,18 +70,16 @@ export default {
     fn = typeof fn === 'function' ? fn : file => {
       return true
     }
-    await this.mkdir(dir).then(new Promise((resolve, reject) => {
-      try {
+    await this.mkdir(dir).then(async () => {
+      await new Promise((resolve, reject) => {
         fs.readdirSync(dir).forEach(async file => {
           if (fn(file)) {
             await this.removeFile(`${dir}/${file}`)
           }
         })
         resolve()
-      } catch (e) {
-        reject(e)
-      }
-    }))
+      })
+    })
   },
   /**
    * 删除文件/目录
