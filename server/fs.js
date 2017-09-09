@@ -10,7 +10,13 @@ export default {
     if (dir == null) {
       return
     }
-    await fsextra.ensureDir(dir)
+    await fsextra.pathExists(dir).then(async exists => {
+      if (exists) {
+      } else {
+        console.log('mkdir', dir)
+        await fsextra.ensureDir(dir)
+      }
+    })
   },
   /**
    * 复制文件
@@ -46,14 +52,18 @@ export default {
     fn = typeof fn === 'function' ? fn : file => {
       return true
     }
-    await new Promise((resolve, reject) => {
-      fs.readdirSync(dir).forEach(async file => {
-        if (fn(file)) {
-          await this.removeFile(`${dir}/${file}`)
-        }
-      })
-      resolve()
-    })
+    await this.mkdir(dir).then(new Promise((resolve, reject) => {
+      try {
+        fs.readdirSync(dir).forEach(async file => {
+          if (fn(file)) {
+            await this.removeFile(`${dir}/${file}`)
+          }
+        })
+        resolve()
+      } catch (e) {
+        reject(e)
+      }
+    }))
   },
   /**
    * 删除文件/目录

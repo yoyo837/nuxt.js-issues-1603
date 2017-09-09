@@ -33,6 +33,7 @@ svfs.removeFileFromDir('.', file => {
     if (nuxt) {
       config.build.buildDir = `${nuxt.options.buildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
     }
+    console.log('nuxtBuild', config.build.buildDir)
     const innerNuxt = new Nuxt(config) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
     if (nuxt == null) { // 初始化的时候第一次没有，直接赋值
       nuxt = innerNuxt
@@ -40,7 +41,11 @@ svfs.removeFileFromDir('.', file => {
 
     const pagePath = path.join(innerNuxt.options.rootDir, 'pages') // nuxt的pages页面目录
     // 清空旧的复制新的
-    svfs.emptyDir(pagePath).then(svfs.copy(config.skin.getPagesPath.apply(innerNuxt), pagePath)).then(() => {
+    svfs.emptyDir(pagePath).catch(e => {
+      console.log(e)
+    }).then(svfs.copy(config.skin.getPagesPath.apply(innerNuxt), pagePath)).catch(e => {
+      console.log(e)
+    }).then(() => {
       const builder = new Builder(innerNuxt)
       builder.build().then(() => {
         if (nuxt === innerNuxt) {
@@ -91,7 +96,7 @@ svfs.removeFileFromDir('.', file => {
       result: 123
     }
 
-    nuxtBuild.apply(this)
+    nuxtBuild()
   })
 
   router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, next) {
