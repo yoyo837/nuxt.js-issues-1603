@@ -11,6 +11,5 @@ yarn-error.log
 # Nuxt generate
 dist
 build
+pages
 
-# pages temp
-pages/*
