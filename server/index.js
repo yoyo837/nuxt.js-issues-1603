@@ -33,7 +33,7 @@ svfs.removeFileFromDir('.', file => {
     if (nuxt) {
       config.build.buildDir = `${nuxt.options.buildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
     }
-    console.log('nuxtBuild', config.build.buildDir)
+    console.log('nuxt buildDir:', config.build.buildDir)
     const innerNuxt = new Nuxt(config) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
     if (nuxt == null) { // 初始化的时候第一次没有，直接赋值
       nuxt = innerNuxt
@@ -90,7 +90,7 @@ svfs.removeFileFromDir('.', file => {
   }))
 
   router.post('/sync', (ctx, next) => {
-    console.log('收到同步请求 ---> ', ctx.request.body)
+    console.log('/sync ---> ', ctx.request.body)
     ctx.status = 200
     ctx.response.body = {
       result: 123
