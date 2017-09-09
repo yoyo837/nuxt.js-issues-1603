@@ -6,7 +6,7 @@ npm-debug.log
 yarn-error.log
 
 # Nuxt build
-.nuxt
+.nuxt*
 
 # Nuxt generate
 dist
