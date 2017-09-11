@@ -4,6 +4,10 @@
   "description": "Nuxt.js project",
   "author": "yoyo837 <yoyo837@hotmail.com>",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "http://tanghui@git.vipwindows.com:11080/ydmap/ydmap-ssr-portal.git"
+  },
   "scripts": {
     "dev": "backpack dev",
     "build": "nuxt build && backpack build",
