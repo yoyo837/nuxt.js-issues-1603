@@ -8,6 +8,7 @@ module.exports = {
       name: 'ssr-portal-prod',
       script: './build/main.js',
       exec_mode: 'cluster',
+      source_map_support: true,
       env: {
         NODE_ENV: 'development',
         COMMON_VARIABLE: 'true'
