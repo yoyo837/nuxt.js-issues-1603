@@ -1,3 +1,3 @@
 [submodule "pages"]
 	path = pages
-	url = ../ydmap-ssr-portal-pages.git
+	url = http://tanghui@git.vipwindows.com:11080/ydmap/ydmap-ssr-portal-pages.git
