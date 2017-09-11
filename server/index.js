@@ -11,7 +11,6 @@ const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
 
-// test push
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
