@@ -6,7 +6,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "http://tanghui@git.vipwindows.com:11080/ydmap/ydmap-ssr-portal.git"
+    "url": "git@git.vipwindows.com:ydmap/ydmap-ssr-portal.git"
   },
   "scripts": {
     "dev": "backpack dev",
