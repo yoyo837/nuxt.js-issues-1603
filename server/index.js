@@ -6,7 +6,6 @@ import c2k from 'koa2-connect'
 import proxy from 'http-proxy-middleware'
 import { Nuxt, Builder } from 'nuxt'
 
-// test push
 const app = new Koa()
 const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
