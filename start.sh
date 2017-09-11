@@ -1,6 +1,4 @@
 #!/bin/bash
 yarn
 
-yarn run build
-
-nohup yarn run start-without-build > ssr.log &
+yarn run pm2-start
