@@ -27,9 +27,15 @@ module.exports = {
       user: 'ydmap',
       host: '120.24.233.178',
       ref: 'origin/master',
-      repo: 'git@git.vipwindows.com:ydmap/ydmap-ssr-portal.git',
+      repo: 'git@git.vipwindows.com:ydmap/ydmap-ssr-portal-pages.git',
+      // ssh_options:'',
+      // "pre-setup" : "apt-get install git",
+      // "post-setup": "ls -la",
+      // "pre-deploy-local" : "echo 'This is a local executed command'"
       path: '/var/www/production',
       'post-deploy': 'npm install && npm run build && pm2 reload ecosystem.config.js --env production'
+      // "env"  : {
+      // }
     // },
     // dev: {
     //   user: 'node',
