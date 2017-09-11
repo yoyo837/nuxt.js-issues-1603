@@ -19,12 +19,12 @@ config.dev = !(app.env === 'production')
 const nuxt = new Nuxt(config)
 
 // Build in development
-const doAPIReg = /\.do$/
-const cp = c2k(proxy({
-  target: 'http://localhost:8082/portal/'
-}))
-
 if (config.dev) {
+  const doAPIReg = /\.do$/
+  const cp = c2k(proxy({
+    target: 'http://localhost:8082/portal/'
+  }))
+
   router.get(doAPIReg, cp)
 
   router.post(doAPIReg, cp)
