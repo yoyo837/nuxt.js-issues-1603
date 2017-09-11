@@ -9,6 +9,7 @@
     "build": "nuxt build && backpack build",
     "start-without-build": "cross-env NODE_ENV=production node build/main.js",
     "start": "npm run build && npm run start-without-build",
+    "pm2-start": "npm run build && pm2 start ecosystem.config.js --env production",
     "precommit": "npm run lint",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
@@ -27,6 +28,7 @@
     "mint-ui": "^2.2.9",
     "moment": "^2.18.1",
     "nuxt": "1.0.0-rc11",
+    "pm2": "^2.6.1",
     "request": "^2.81.0"
   },
   "devDependencies": {
