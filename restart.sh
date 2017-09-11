@@ -1,3 +1,4 @@
+#!/bin/bash
 /data/ydmap/node/ydmap-ssr-portal/stop.sh
 sleep 5
 /data/ydmap/node/ydmap-ssr-portal/start.sh
