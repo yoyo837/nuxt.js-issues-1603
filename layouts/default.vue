@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@skinCss/skin-app.scss';
+@import '~@/assets/css/module/skin-app.scss';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
