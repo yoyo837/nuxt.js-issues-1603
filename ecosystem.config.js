@@ -30,7 +30,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@git.vipwindows.com:ydmap/ydmap-ssr-portal-pages.git',
       // ssh_options:'',
-      // "pre-setup" : "apt-get install git",
+      'pre-setup': 'rm -rf ./pages/source',
       // "post-setup": "ls -la",
       // "pre-deploy-local" : "echo 'This is a local executed command'"
       path: './pages',
