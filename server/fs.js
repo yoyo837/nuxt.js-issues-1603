@@ -1,8 +1,8 @@
-import fs from 'fs'
-import path from 'path'
-import fsextra from 'fs-extra'
+const fs = require('fs')
+const path = require('path')
+const fsextra = require('fs-extra')
 
-export default {
+module.exports = {
   /**
    * 显示目录明显
    * @param {string} dir

@@ -1,10 +1,10 @@
-import Koa from 'koa'
-import KoaRouter from 'koa-router'
-import Boom from 'boom'
-import bodyParser from 'koa-bodyparser'
-import c2k from 'koa2-connect'
-import proxy from 'http-proxy-middleware'
-import { Nuxt, Builder } from 'nuxt'
+const Koa = require('koa')
+const KoaRouter = require('koa-router')
+const Boom = require('boom')
+const bodyParser = require('koa-bodyparser')
+const c2k = require('koa2-connect')
+const proxy = require('http-proxy-middleware')
+const { Nuxt, Builder } = require('nuxt')
 
 const app = new Koa()
 const router = new KoaRouter()
