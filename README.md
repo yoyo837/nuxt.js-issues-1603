@@ -47,6 +47,7 @@ webpack通过配置视一切资源都是模块，构建方式按模块依赖链�
 - VueHelper
 - wpy-beautify
 - vscode-element-helper
+- Start git-bash
 
 也可选择命令行执行扩展安装(确保已经安装 **Visual Studio Code** )
 ```
@@ -75,6 +76,7 @@ code --install-extension hollowtree.vue-snippets
 code --install-extension oysun.vuehelper
 code --install-extension doingweb.wpy-beautify
 code --install-extension ElemeFE.vscode-element-helper
+code --install-extension McCarter.start-git-bash
 ```
 
 安装好扩展后重启 **Visual Studio Code** ,点击菜单栏 **文件** - **首选项** - **文件图标主题** ,选择前面安装的 **VSCode Icons**
