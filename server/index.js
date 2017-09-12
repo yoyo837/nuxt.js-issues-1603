@@ -8,7 +8,7 @@ const { Nuxt, Builder } = require('nuxt')
 
 const app = new Koa()
 const router = new KoaRouter()
-const host = process.env.HOST || '127.0.0.1'
+const host = process.env.HOST || '*'
 const port = process.env.PORT || 9086
 
 // Import and Set Nuxt.js options
