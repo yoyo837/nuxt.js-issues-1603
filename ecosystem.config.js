@@ -33,7 +33,7 @@ module.exports = {
       // "pre-setup" : "apt-get install git",
       // "post-setup": "ls -la",
       // "pre-deploy-local" : "echo 'This is a local executed command'"
-      path: '/var/www/production',
+      path: './pages',
       'post-deploy': 'npm install && npm run build && pm2 reload ecosystem.config.js --env production'
       // "env"  : {
       // }
