@@ -8,7 +8,7 @@ const { Nuxt, Builder } = require('nuxt')
 
 const app = new Koa()
 const router = new KoaRouter()
-// const host = process.env.HOST || ''
+const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
 
 // Import and Set Nuxt.js options
@@ -68,6 +68,6 @@ router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, n
   })
 })
 
-app.listen(port)
+app.listen(port, host)
 
-console.log(`Server listening on http://localhost:${port}`)
+console.log(`Server listening on ${host}:${port}`)
