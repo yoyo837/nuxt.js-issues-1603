@@ -6,8 +6,6 @@ const c2k = require('koa2-connect')
 const proxy = require('http-proxy-middleware')
 const { Nuxt, Builder } = require('nuxt')
 
-console.log('server:start...')
-
 const app = new Koa()
 const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
@@ -22,7 +20,6 @@ const nuxt = new Nuxt(config)
 
 // Build in development
 if (config.dev) {
-  console.log('server:dev...')
   const doAPIReg = /\.do$/
   const cp = c2k(proxy({
     target: 'http://localhost:8082/portal/'
@@ -36,11 +33,9 @@ if (config.dev) {
   builder.build().catch(e => {
     /* eslint-disable no-console */
     console.error(e)
-    console.log('server:exit...')
     process.exit(1)
   })
 }
-console.log('server:go on...')
 
 app.use(bodyParser())
 
@@ -73,7 +68,6 @@ router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, n
   })
 })
 
-console.log('server:listen...')
 app.listen(port, host)
 
 console.log(`Server listening on ${host}:${port}`)
