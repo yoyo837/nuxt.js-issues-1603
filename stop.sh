@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PID=$(ps -ef | grep /data/ydmap/node/ydmap-ssr-portal | grep -v grep | awk '{ print $2 }')
+PID=$(ps -ef | grep build/main.js | grep -v grep | awk '{ print $2 }')
 
 if [ -z "$PID" ]
 then
