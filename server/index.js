@@ -50,7 +50,6 @@ async function nuxtBuild() {
   if (!config.dev) {
     await pull.pullPages()
   }
-  console.log(123)
   const isFirstBuild = nuxt == null
   const conf = isFirstBuild ? config : _.cloneDeep(config)
   logger.info('pid:', process.pid)
