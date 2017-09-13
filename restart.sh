@@ -17,6 +17,7 @@ cp -r /data/ydmap/node/node_modules/ /data/ydmap/node/ydmap-ssr-portal/
 
 cd /data/ydmap/node/ydmap-ssr-portal/
 
-./start.sh
+# ./start.sh
+
 # sleep 20
 # tail -f /data/ydmap/node/ydmap-ssr-portal/ssr.log
