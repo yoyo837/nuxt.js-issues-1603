@@ -15,8 +15,6 @@ cp -r /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/ /data/ydmap/
 
 cp -r /data/ydmap/node/node_modules/ /data/ydmap/node/ydmap-ssr-portal/
 
-BUILD_ID=DONTKILLME
-
 cd /data/ydmap/node/ydmap-ssr-portal/
 
 ./start.sh
