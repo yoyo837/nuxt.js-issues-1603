@@ -14,8 +14,8 @@ const app = new Koa()
 
 config.dev = !(app.env === 'production')
 
-// const logger = log.getLogger(config.dev)
-const logger = log.getLogger(true)
+const logger = log.getLogger(config.dev)
+// const logger = log.getLogger(true)
 
 logger.info('|')
 logger.info('server start...')
