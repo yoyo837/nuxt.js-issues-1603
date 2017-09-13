@@ -51,10 +51,10 @@ async function nuxtBuild() {
   logger.info('pid:', process.pid)
   logger.info('nuxt build: old nuxt is', nuxt ? typeof nuxt : nuxt)
   if (!isFirstBuild) {
-    const oldBuildDir = nuxt.options.buildDir
-    const oldBuildDirIndex = oldBuildDir.lastIndexOf(path.sep)
-    conf.build.buildDir = `${oldBuildDir.substring(0, oldBuildDirIndex)}${path.sep}${oldBuildDir.substr(oldBuildDirIndex + 1).split(Separator)[0]}-${++buildIndex}` // 换一个目录
-    logger.info('nuxt build: old nuxt buildDir is', nuxt.options.buildDir)
+    const oldDir = nuxt.options.buildDir
+    const oldBuildDir = oldDir.substr(oldDir.lastIndexOf(path.sep) + 1)
+    conf.build.buildDir = `${oldBuildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
+    logger.info('nuxt build: old nuxt buildDir is', oldBuildDir)
   }
   logger.info('nuxt build: new nuxt buildDir is', conf.build.buildDir)
   const innerNuxt = new Nuxt(conf) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
