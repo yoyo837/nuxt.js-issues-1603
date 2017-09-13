@@ -32,6 +32,11 @@ let promise
 // Instantiate nuxt.js
 let nuxt
 
+// test log
+setInterval(function() {
+  logger.info(Date.now())
+}, 1000 * 3)
+
 async function nuxtBuild() {
   if (!config.dev) {
     await pull.pullPages()
