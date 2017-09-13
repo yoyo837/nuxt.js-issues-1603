@@ -15,9 +15,42 @@ const port = process.env.PORT || 9086
 const config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
 
+const Separator = '-'
+let buildIndex = 0
+let promise
 // Instantiate nuxt.js
-const nuxt = new Nuxt(config)
+let nuxt
 
+async function nuxtBuild() {
+  console.log('pid:', process.pid)
+  console.log('nuxt build: old nuxt is', nuxt ? typeof nuxt : nuxt)
+  if (nuxt) {
+    config.build.buildDir = `${nuxt.options.buildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
+  }
+  const innerNuxt = new Nuxt(config) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
+  if (nuxt == null) { // 初始化的时候第一次没有，直接赋值
+    nuxt = innerNuxt
+  }
+  const builder = new Builder(innerNuxt)
+  promise = builder.build().then(() => {
+    if (nuxt === innerNuxt) {
+    } else {
+      const temp = nuxt
+      nuxt = innerNuxt
+      temp.close()
+    }
+    promise = null // 置空
+  }).catch(e => {
+    console.error(e)
+    promise = null // 置空
+    if (config.dev) {
+      process.exit(1)
+    }
+  })
+  await promise
+}
+
+nuxtBuild()
 // Build in development
 if (config.dev) {
   const doAPIReg = /\.do$/
@@ -28,12 +61,20 @@ if (config.dev) {
   router.get(doAPIReg, cp)
 
   router.post(doAPIReg, cp)
-
-  const builder = new Builder(nuxt)
-  builder.build().catch(e => {
-    /* eslint-disable no-console */
-    console.error(e)
-    process.exit(1)
+} else {
+  router.post('/sync', async function(ctx, next) {
+    console.log('/sync ---> ', ctx.request.body)
+    ctx.status = 200
+    const statePromise = promise || nuxtBuild()
+    await statePromise.then(() => {
+      ctx.response.body = {
+        result: 'build ok.'
+      }
+    }).catch(e => {
+      ctx.response.body = {
+        result: e.message || 'build error.'
+      }
+    })
   })
 }
 
@@ -46,14 +87,6 @@ app.use(router.allowedMethods({
   notImplemented: () => new Boom.notImplemented(),
   methodNotAllowed: () => new Boom.methodNotAllowed()
 }))
-
-router.post('/sync', function(ctx, next) {
-  console.log('/sync ---> ', ctx.request.body)
-  ctx.status = 200
-  ctx.response.body = {
-    result: 123
-  }
-})
 
 router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
