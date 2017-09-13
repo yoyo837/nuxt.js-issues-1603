@@ -27,6 +27,7 @@
     "koa-router": "^7.2.1",
     "koa2-connect": "^1.0.2",
     "lodash": "^4.17.4",
+    "log4js": "^2.3.3",
     "mint-ui": "^2.2.9",
     "moment": "^2.18.1",
     "nuxt": "1.0.0-rc11",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@types/koa": "^2.0.39",
     "@types/koa-router": "^7.0.23",
+    "@types/log4js": "^0.0.33",
     "@types/request": "^2.0.3",
     "babel-eslint": "^7.2.3",
     "babel-plugin-component": "^0.10.0",
