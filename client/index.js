@@ -38,7 +38,8 @@ _.uniq(hostList).forEach(host => {
 
 Promise.all(promiseList).then(function(bodyList) {
   bodyList.forEach(item => {
-    console.log(item.host, item.body.result, item.body.lastMsg)
+    /* eslint-disable no-useless-call */
+    console.log.apply(console, [item.host, item.body.result, item.body.lastMsg])
   })
   console.log('Sync Done.')
 }).catch(e => {
