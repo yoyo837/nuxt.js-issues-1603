@@ -1,5 +1,3 @@
-import _ from 'lodash'
-import path from 'path'
 import Koa from 'koa'
 import KoaRouter from 'koa-router'
 import Boom from 'boom'
@@ -26,50 +24,21 @@ const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
 
-const Separator = '-'
-let buildIndex = 0
-let promise
+let promise = null
 // Instantiate nuxt.js
-let nuxt
-
-// test log
-setInterval(function() {
-  logger.info(Date.now())
-}, 1000 * 3)
+const nuxt = new Nuxt(config)
 
 async function nuxtBuild() {
   if (!config.dev) {
     await pull.pullPages()
   }
-  const isFirstBuild = nuxt == null
-  const conf = isFirstBuild ? config : _.cloneDeep(config)
-  logger.info('pid:', process.pid)
-  logger.info('nuxt build: old nuxt is', nuxt ? typeof nuxt : nuxt)
-  if (!isFirstBuild) {
-    const oldDir = nuxt.options.buildDir
-    const oldBuildDir = oldDir.substr(oldDir.lastIndexOf(path.sep) + 1)
-    conf.build.buildDir = `${oldBuildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
-    logger.info('nuxt build: old nuxt buildDir is', oldBuildDir)
-  }
-  logger.info('nuxt build: new nuxt buildDir is', conf.build.buildDir)
-  const innerNuxt = new Nuxt(conf) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
-  innerNuxt.buildIndex = buildIndex
-  if (isFirstBuild) { // 初始化的时候第一次没有，直接赋值
-    nuxt = innerNuxt
-  }
-  const builder = new Builder(innerNuxt)
+  const builder = new Builder(nuxt)
   promise = builder.build().then(() => {
-    if (nuxt === innerNuxt) {
-    } else {
-      const temp = nuxt
-      nuxt = innerNuxt
-      temp.close()
-    }
     promise = null // 置空
   }).catch(e => {
     logger.error(e)
     promise = null // 置空
-    if (conf.dev) {
+    if (config.dev) {
       process.exit(1)
     }
   })
