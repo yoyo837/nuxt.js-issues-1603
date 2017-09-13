@@ -9,36 +9,21 @@ import proxy from 'http-proxy-middleware'
 import { Nuxt, Builder } from 'nuxt'
 import log4js from 'log4js'
 import pull from './pull'
+import log from './log'
+// Import and Set Nuxt.js options
+const config = require('../nuxt.config.js')
+const app = new Koa()
 
-log4js.configure({
-  appenders: {
-    server: {
-      type: 'file',
-      filename: 'server.log',
-      maxLogSize: 10485760
-    }
-  },
-  categories: {
-    default: {
-      appenders: ['server'],
-      level: 'info'
-    }
-  }
-})
+config.dev = !(app.env === 'production')
 
-const logger = log4js.getLogger()
+const logger = log.getLogger(config.dev)
 
 logger.info('|')
 logger.info('server start...')
 
-const app = new Koa()
 const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
-
-// Import and Set Nuxt.js options
-const config = require('../nuxt.config.js')
-config.dev = !(app.env === 'production')
 
 const Separator = '-'
 let buildIndex = 0
