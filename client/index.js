@@ -33,7 +33,7 @@ _.uniq(hostList).forEach(host => {
   }))
 })
 
-Promise.all(promiseList).then(() => {
+Promise.all(promiseList).then(function() {
   console.log(arguments)
   console.log('Sync Done.')
 }).catch(e => {
