@@ -1,39 +1,23 @@
-import _ from 'lodash'
-import request from 'request'
+import http from './'
+import log from '../server/log'
 
-const GET = 'get'
-const POST = 'post'
+const logger = log.getLogger(true)
 
-function core(method, url, params, fn) {
-  method = method || GET
-  if (typeof params === 'function') {
-    fn = params
-    params = {}
-  }
-  const option = {
-    url,
-    json: true
-  }
-  if (method === GET) {
-    _.assign(option, {qs: params})
-  } else if (method === POST) {
-    _.assign(option, {body: params})
-  }
-  request[method](option, function (e) {
-    if (e) {
-      console.log(e)
-    }
-    if (typeof fn === 'function') {
-      fn.apply(this, arguments)
-    }
+if (process.env.NODE_ENV == null) {
+  logger.info('NODE_ENV configuration unset')
+  process.exit(1)
+}
+const isProd = process.env.NODE_ENV === 'production'
+
+const hostList = isProd ? [] : ['ssr.vipwindows.com']
+
+hostList.forEach(async host => [
+  await new Promise((resolve, reject) => {
+    http.post(`http://${host}:9086/sync`, {
+      username: '1',
+      password: '1'
+    }, () => {
+      console.log(this, arguments)
+    })
   })
-}
-
-export default {
-  get(url, params, fn) {
-    return core(null, url, params, fn)
-  },
-  post(url, params, fn) {
-    return core(POST, url, params, fn)
-  }
-}
+])
