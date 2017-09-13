@@ -1,4 +1,4 @@
 #!/bin/bash
 yarn
 
-nohup yarn run start > ssr.log &
+nohup yarn run start > start.log &
