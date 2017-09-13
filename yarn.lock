@@ -77,6 +77,10 @@
     "@types/koa-compose" "*"
     "@types/node" "*"
 
+"@types/lodash@^4.14.74":
+  version "4.14.74"
+  resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.74.tgz#ac3bd8db988e7f7038e5d22bd76a7ba13f876168"
+
 "@types/log4js@^0.0.33":
   version "0.0.33"
   resolved "http://registry.npm.taobao.org/@types/log4js/download/@types/log4js-0.0.33.tgz#8f9813805c5bac90f028b12c467f6607087a3128"

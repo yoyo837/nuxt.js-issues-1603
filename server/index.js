@@ -1,3 +1,5 @@
+const _ = require('lodash')
+const path = require('path')
 const Koa = require('koa')
 const KoaRouter = require('koa-router')
 const Boom = require('boom')
@@ -43,14 +45,20 @@ let promise
 let nuxt
 
 async function nuxtBuild() {
+  const isFirstBuild = nuxt == null
+  const conf = isFirstBuild ? config : _.cloneDeep(config)
   logger.info('pid:', process.pid)
   logger.info('nuxt build: old nuxt is', nuxt ? typeof nuxt : nuxt)
-  if (nuxt) {
-    config.build.buildDir = `${nuxt.options.buildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
+  if (!isFirstBuild) {
+    const oldBuildDir = nuxt.options.buildDir
+    const oldBuildDirIndex = oldBuildDir.lastIndexOf(path.sep)
+    conf.build.buildDir = `${oldBuildDir.substring(0, oldBuildDirIndex)}${path.sep}${oldBuildDir.substr(oldBuildDirIndex + 1).split(Separator)[0]}-${++buildIndex}` // 换一个目录
+    logger.info('nuxt build: old nuxt buildDir is', nuxt.options.buildDir)
   }
-  const innerNuxt = new Nuxt(config) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
+  logger.info('nuxt build: new nuxt buildDir is', conf.build.buildDir)
+  const innerNuxt = new Nuxt(conf) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
   innerNuxt.buildIndex = buildIndex
-  if (nuxt == null) { // 初始化的时候第一次没有，直接赋值
+  if (isFirstBuild) { // 初始化的时候第一次没有，直接赋值
     nuxt = innerNuxt
   }
   const builder = new Builder(innerNuxt)
@@ -65,7 +73,7 @@ async function nuxtBuild() {
   }).catch(e => {
     logger.error(e)
     promise = null // 置空
-    if (config.dev) {
+    if (conf.dev) {
       process.exit(1)
     }
   })
