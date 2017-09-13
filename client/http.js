@@ -12,6 +12,7 @@ function core(method, url, params, fn) {
   }
   const option = {
     url,
+    timeout: 1000 * 180,
     json: true
   }
   if (method === GET) {
