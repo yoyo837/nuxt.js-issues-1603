@@ -28,6 +28,7 @@ async function nuxtBuild() {
     config.build.buildDir = `${nuxt.options.buildDir.split(Separator)[0]}-${++buildIndex}` // 换一个目录
   }
   const innerNuxt = new Nuxt(config) // 如果重复利用Nuxt, nuxt在build的时候是不能提供服务的, 所以每次new
+  innerNuxt.buildIndex = buildIndex
   if (nuxt == null) { // 初始化的时候第一次没有，直接赋值
     nuxt = innerNuxt
   }
@@ -94,6 +95,7 @@ router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, n
   await new Promise((resolve, reject) => {
     ctx.res.on('close', resolve)
     ctx.res.on('finish', resolve)
+    console.log('nuxt build index:', nuxt.buildIndex)
     nuxt.render(ctx.req, ctx.res, promise => {
       // nuxt.render passes a rejected promise into callback on error.
       promise.then(resolve).catch(reject)
