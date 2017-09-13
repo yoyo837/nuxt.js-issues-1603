@@ -147,4 +147,4 @@ function log4jsShutdown() {
 }
 
 process.on('exit', log4jsShutdown)
-process.on('SIGINT', log4jsShutdown)
+// process.on('SIGINT', log4jsShutdown)
