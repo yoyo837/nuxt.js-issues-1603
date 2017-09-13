@@ -25,6 +25,7 @@ const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
 
 let promise = null
+let promiseErr = null
 // Instantiate nuxt.js
 const nuxt = new Nuxt(config)
 
@@ -34,13 +35,15 @@ async function nuxtBuild() {
   }
   const builder = new Builder(nuxt)
   promise = builder.build().then(() => {
-    promise = null // 置空
+    promiseErr = null
   }).catch(e => {
+    promiseErr = e
     logger.error(e)
-    promise = null // 置空
     if (config.dev) {
       process.exit(1)
     }
+  }).then(() => {
+    promise = null // 置空
   })
   await promise
 }
@@ -69,16 +72,17 @@ if (config.dev) {
     }
 
     ctx.status = 200
-    const statePromise = promise || nuxtBuild()
-    await statePromise.then(() => {
+    if (promise) {
       ctx.response.body = {
-        result: 'build ok.'
+        result: 'Is building, please wait...'
       }
-    }).catch(e => {
-      ctx.response.body = {
-        result: e.message || 'build error.'
-      }
-    })
+      return
+    }
+    nuxtBuild()
+    ctx.response.body = {
+      lastMsg: promiseErr ? promiseErr.message : null,
+      result: 'Start building.'
+    }
   })
 }
 
@@ -96,7 +100,7 @@ router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, n
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
   if (ctx.request.url === '/' || ctx.request.url.startsWith('/?')) {
-    logger.info('nuxt build index:', nuxt.buildIndex)
+    logger.info('get:', ctx.request.url)
   }
 
   await new Promise((resolve, reject) => {
