@@ -63,7 +63,7 @@ if (config.dev) {
   router.post(doAPIReg, cp)
 } else {
   router.post('/sync', async function(ctx, next) {
-    console.log('/sync ---> ', ctx.request.body)
+    console.log('/sync ----> ', ctx.request.body)
     ctx.status = 200
     const statePromise = promise || nuxtBuild()
     await statePromise.then(() => {
