@@ -11,4 +11,4 @@ const stdout = shell.exec('git status', {
 if (stdout.indexOf('up-to-date') > 0 && stdout.indexOf('nothing to commit, working tree clean') > 0) {
   process.exit()
 }
-throw new Error('请提交所有更改，拉取远程最新代码合并后同步到服务器.')
+throw new Error('Please submit all changes, pull the remote code to the local, merge the conflicting code, and then submit again and push it to the remote.')
