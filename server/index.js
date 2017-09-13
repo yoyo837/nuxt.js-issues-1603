@@ -13,7 +13,8 @@ log4js.configure({
   appenders: {
     server: {
       type: 'file',
-      filename: 'server.log'
+      filename: 'server.log',
+      maxLogSize: 10485760
     }
   },
   categories: {
