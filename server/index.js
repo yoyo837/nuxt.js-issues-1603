@@ -84,7 +84,16 @@ if (config.dev) {
   router.post(doAPIReg, cp)
 } else {
   router.post('/sync', async function(ctx, next) {
-    logger.info('/sync ----> ', ctx.request.body)
+    const data = ctx.request.body || {}
+    logger.info('/sync ----> ', data)
+    if (data.authKey == null) {
+      ctx.status = 401
+      ctx.response.body = {
+        result: 'Unauthorized'
+      }
+      return
+    }
+
     ctx.status = 200
     const statePromise = promise || nuxtBuild()
     await statePromise.then(() => {

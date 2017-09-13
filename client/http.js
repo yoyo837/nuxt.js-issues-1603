@@ -1,5 +1,5 @@
-import _ from 'lodash'
-import request from 'request'
+const _ = require('lodash')
+const request = require('request')
 
 const GET = 'get'
 const POST = 'post'
@@ -21,7 +21,7 @@ function core(method, url, params, fn) {
   }
   request[method](option, function (e) {
     if (e) {
-      console.log(e)
+      throw e
     }
     if (typeof fn === 'function') {
       fn.apply(this, arguments)
@@ -29,7 +29,7 @@ function core(method, url, params, fn) {
   })
 }
 
-export default {
+module.exports = {
   get(url, params, fn) {
     return core(null, url, params, fn)
   },
