@@ -1,5 +1,5 @@
 #!/bin/bash
-/data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/stop.sh
+/data/ydmap/node/ydmap-ssr-portal/stop.sh
 
 sleep 5
 
