@@ -25,7 +25,10 @@ _.uniq(hostList).forEach(host => {
           reject(e || new Error(`http ${httpResponse.statusCode} => ${httpResponse.statusMessage}`))
           return
         }
-        resolve(body)
+        resolve({
+          host,
+          body
+        })
       })
     } catch (e) {
       reject(e)
@@ -33,8 +36,10 @@ _.uniq(hostList).forEach(host => {
   }))
 })
 
-Promise.all(promiseList).then(function() {
-  console.log(arguments)
+Promise.all(promiseList).then(function(bodyList) {
+  bodyList.forEach(item => {
+    console.log(item.host, item.body.result, item.body.lastMsg)
+  })
   console.log('Sync Done.')
 }).catch(e => {
   console.log(e)
