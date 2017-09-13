@@ -39,7 +39,11 @@ _.uniq(hostList).forEach(host => {
 Promise.all(promiseList).then(function(bodyList) {
   bodyList.forEach(item => {
     /* eslint-disable no-useless-call */
-    console.log.apply(console, [item.host, item.body.result, item.body.lastMsg])
+    const args = [item.host, item.body.result]
+    if (item.body.lastMsg) {
+      args.push(item.body.lastMsg)
+    }
+    console.log.apply(console, args)
   })
   console.log('Sync Done.')
 }).catch(e => {
