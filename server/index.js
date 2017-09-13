@@ -80,7 +80,7 @@ if (config.dev) {
       return
     }
     ctx.response.body = {
-      result: 'test..'
+      result: promiseErr ? promiseErr.message : null
     }
     // nuxtBuild()
     // ctx.response.body = {
