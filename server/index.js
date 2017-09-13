@@ -79,14 +79,14 @@ if (config.dev) {
       }
       return
     }
-    ctx.response.body = {
-      result: promiseErr ? promiseErr.message : null
-    }
-    // nuxtBuild()
     // ctx.response.body = {
-    //   lastMsg: promiseErr ? promiseErr.message : null,
-    //   result: 'Start building.'
+    //   result: promiseErr ? promiseErr.message : null
     // }
+    nuxtBuild()
+    ctx.response.body = {
+      lastMsg: promiseErr ? promiseErr.message : null,
+      result: 'Start building.'
+    }
   })
 }
 
