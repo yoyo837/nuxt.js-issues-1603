@@ -19,6 +19,7 @@ const logger = log.getLogger(config.dev)
 
 logger.info('|')
 logger.info('server start...')
+logger.info('pid:', process.pid)
 
 const router = new KoaRouter()
 const host = process.env.HOST || '127.0.0.1'
