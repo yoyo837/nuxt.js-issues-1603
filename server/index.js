@@ -1,14 +1,14 @@
-const _ = require('lodash')
-const path = require('path')
-const Koa = require('koa')
-const KoaRouter = require('koa-router')
-const Boom = require('boom')
-const bodyParser = require('koa-bodyparser')
-const c2k = require('koa2-connect')
-const proxy = require('http-proxy-middleware')
-const { Nuxt, Builder } = require('nuxt')
-const log4js = require('log4js')
-const pull = require('./pull')
+import _ from 'lodash'
+import path from 'path'
+import Koa from 'koa'
+import KoaRouter from 'koa-router'
+import Boom from 'boom'
+import bodyParser from 'koa-bodyparser'
+import c2k from 'koa2-connect'
+import proxy from 'http-proxy-middleware'
+import { Nuxt, Builder } from 'nuxt'
+import log4js from 'log4js'
+import pull from './pull'
 
 log4js.configure({
   appenders: {

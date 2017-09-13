@@ -1,6 +1,6 @@
-const shell = require('shelljs')
+import shell from 'shelljs'
 
-module.exports = {
+export default {
   async pullPages() {
     await new Promise((resolve, reject) => {
       shell.cd('server')
