@@ -8,6 +8,7 @@ const c2k = require('koa2-connect')
 const proxy = require('http-proxy-middleware')
 const { Nuxt, Builder } = require('nuxt')
 const log4js = require('log4js')
+const pull = require('./pull')
 
 log4js.configure({
   appenders: {
@@ -46,6 +47,10 @@ let promise
 let nuxt
 
 async function nuxtBuild() {
+  if (!config.dev) {
+    await pull.pullPages()
+  }
+  console.log(123)
   const isFirstBuild = nuxt == null
   const conf = isFirstBuild ? config : _.cloneDeep(config)
   logger.info('pid:', process.pid)
