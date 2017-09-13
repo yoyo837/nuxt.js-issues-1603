@@ -113,10 +113,13 @@ app.use(router.allowedMethods({
 router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
+  if (ctx.request.url === '/' || ctx.request.url.startsWith('/?')) {
+    logger.info('nuxt build index:', nuxt.buildIndex)
+  }
+
   await new Promise((resolve, reject) => {
     ctx.res.on('close', resolve)
     ctx.res.on('finish', resolve)
-    logger.info('nuxt build index:', nuxt.buildIndex)
     nuxt.render(ctx.req, ctx.res, promise => {
       // nuxt.render passes a rejected promise into callback on error.
       promise.then(resolve).catch(reject)
