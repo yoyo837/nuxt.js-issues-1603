@@ -1,11 +1,10 @@
 import log4js from 'log4js'
-import path from 'path'
 
 log4js.configure({
   appenders: {
     server: {
       type: 'file',
-      filename: path.resolve('server.log'),
+      filename: 'server.log',
       maxLogSize: 10485760
     }
   },

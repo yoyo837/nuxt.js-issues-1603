@@ -17,6 +17,8 @@ cp -r /data/ydmap/node/node_modules/ /data/ydmap/node/ydmap-ssr-portal/
 
 BUILD_ID=DONTKILLME
 
-/data/ydmap/node/ydmap-ssr-portal/start.sh
+cd /data/ydmap/node/ydmap-ssr-portal/
+
+./start.sh
 # sleep 20
 # tail -f /data/ydmap/node/ydmap-ssr-portal/ssr.log
