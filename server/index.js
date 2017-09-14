@@ -96,7 +96,7 @@ app.use(router.allowedMethods({
   notImplemented: () => new Boom.notImplemented()
 }))
 
-router.get(isHashUrl ? /(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/ : '*', async function(ctx, next) {
+router.get(isHashUrl ? /(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/ : /^((?!\.do$).)*$/, async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
   if (ctx.request.url === '/' || ctx.request.url.startsWith('/?')) {
