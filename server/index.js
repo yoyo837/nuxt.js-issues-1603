@@ -53,8 +53,8 @@ async function nuxtBuild() {
 nuxtBuild()
 // Build in development
 if (config.dev) {
-  router.all(/\.do$/, c2k(proxy({
-    target: 'http://localhost:8082/portal/'
+  config.devProxy && router.all(/\.do$/, c2k(proxy({
+    target: config.devProxy
   })))
 } else {
   router.post('/sync', async function(ctx, next) {

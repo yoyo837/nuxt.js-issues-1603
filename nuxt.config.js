@@ -41,6 +41,8 @@ function setSourceMapForLoader(rule) {
 const ignoreRouter = [/^\/vue-features\//]
 
 module.exports = {
+  // devProxy开发接口调用对接地址
+  devProxy: 'http://localhost:8082/portal/',
   messages: {
     error_404: '您访问的资源不存在',
     back_to_home: '返回首页',
