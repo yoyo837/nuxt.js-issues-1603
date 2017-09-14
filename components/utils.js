@@ -5,10 +5,13 @@ const CDN_IMG_HOST = '//cdnimg.ydmap.com.cn'
 const DEFAULT_USER_AVATAR_PIC_PATH = `${CDN_IMG_HOST}/publicuser/0/`
 
 function screenSize() {
-  return {
-    width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-    height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+  if (process.browser) {
+    return {
+      width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+      height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    }
   }
+  return {} // ssr
 }
 
 function isMobile() {
