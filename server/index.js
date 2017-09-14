@@ -6,8 +6,8 @@ import c2k from 'koa2-connect'
 import proxy from 'http-proxy-middleware'
 import { Nuxt, Builder } from 'nuxt'
 import log4js from 'log4js'
-import pull from './pull'
 import log from './log'
+const pull = require('../client/pull')
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 const isHashUrl = config.router && config.router.mode === 'hash'
