@@ -1,3 +1,8 @@
+/**
+ * nuxt module: @nuxtjs/axios
+ * Secure and Easy Axios integration with Nuxt.js.
+ * https://github.com/nuxt-community/axios-module
+ */
 import _ from 'lodash'
 import axios from 'axios'
 import popup from './popup'
