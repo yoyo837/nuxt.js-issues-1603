@@ -38,7 +38,7 @@ function setSourceMapForLoader(rule) {
   }
 }
 
-const ignoreRouter = [/^\/components\//, /^\/mixins\//]
+const ignoreRouter = [/^\/vue-features\//]
 
 module.exports = {
   messages: {
