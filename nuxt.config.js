@@ -141,8 +141,7 @@ module.exports = {
    */
   css: [
     'element-ui/lib/theme-default/index.css', // 如果使用babel-plugin-component引用成功，则这里不需要
-    'mint-ui/lib/style.css', // 如果使用babel-plugin-component引用成功，则这里不需要
-    '~assets/css/app.scss'
+    'mint-ui/lib/style.css' // 如果使用babel-plugin-component引用成功，则这里不需要
   ],
   /*
    ** Customize the progress-bar color

@@ -24,6 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@/assets/css/app.scss';
 @import '~@/assets/css/module/skin-app.scss';
 
 #app {
