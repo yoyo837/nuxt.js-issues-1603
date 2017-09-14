@@ -65,6 +65,7 @@ module.exports = {
   },
   plugins: [
   ],
+  cache: true,
   build: {
     babel: {
       plugins: [
