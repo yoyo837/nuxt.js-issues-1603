@@ -16,5 +16,5 @@ pull.pullPages().then(() => {
   throw new Error('Please submit all changes, pull the remote code to the local, merge the conflicting code, and then submit again and push it to the remote.')
 }).catch(e => {
   console.log(e)
-  throw e
+  process.exit(1)
 })
