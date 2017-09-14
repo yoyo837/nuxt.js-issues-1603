@@ -38,9 +38,9 @@ function setSourceMapForLoader(rule) {
 }
 
 module.exports = {
-  router: {
-    mode: 'hash'
-  },
+  // router: {
+  //   mode: 'hash'
+  // },
   plugins: [
   ],
   build: {

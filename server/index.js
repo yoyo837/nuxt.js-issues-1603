@@ -10,6 +10,7 @@ import pull from './pull'
 import log from './log'
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
+const isHashUrl = config.router && config.router.mode === 'hash'
 const app = new Koa()
 
 config.dev = !(app.env === 'production')
@@ -52,14 +53,9 @@ async function nuxtBuild() {
 nuxtBuild()
 // Build in development
 if (config.dev) {
-  const doAPIReg = /\.do$/
-  const cp = c2k(proxy({
+  router.all(/\.do$/, c2k(proxy({
     target: 'http://localhost:8082/portal/'
-  }))
-
-  router.get(doAPIReg, cp)
-
-  router.post(doAPIReg, cp)
+  })))
 } else {
   router.post('/sync', async function(ctx, next) {
     const data = ctx.request.body || {}
@@ -96,11 +92,11 @@ app.use(router.routes())
 app.use(router.allowedMethods({
   throw: true,
   /* eslint-disable new-cap */
-  notImplemented: () => new Boom.notImplemented(),
-  methodNotAllowed: () => new Boom.methodNotAllowed()
+  // methodNotAllowed: () => new Boom.methodNotAllowed(),
+  notImplemented: () => new Boom.notImplemented()
 }))
 
-router.get(/(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/, async function(ctx, next) {
+router.get(isHashUrl ? /(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/ : '*', async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
   if (ctx.request.url === '/' || ctx.request.url.startsWith('/?')) {
