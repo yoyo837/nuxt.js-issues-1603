@@ -1,6 +1,5 @@
 <template>
-  <section class="container">
-    <img src="../assets/img/logo.png" alt="Nuxt.js Logo" />
+  <section class="container text-center">
     <h1 class="title">
       {{ error.statusCode }}
     </h1>
@@ -8,7 +7,7 @@
       {{ error.message }}
     </h2>
     <nuxt-link class="button" to="/" v-if="error.statusCode === 404">
-      Homepage
+      返回首页
     </nuxt-link>
   </section>
 </template>
@@ -27,10 +26,6 @@ export default {
 .info {
   font-weight: 300;
   color: #9aabb1;
-  margin: 0;
-}
-
-.button {
-  margin-top: 50px;
+  margin: 20px 0;
 }
 </style>

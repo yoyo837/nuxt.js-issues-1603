@@ -1,3 +1,4 @@
+// const fsextra = require('fs-extra')
 const sourceMapLoader = ['vue-style-loader', 'css-loader', 'postcss-loader', 'stylus-loader', 'sass-loader', 'less-loader']
 
 function setSourceMapForLoader(rule) {
@@ -37,10 +38,31 @@ function setSourceMapForLoader(rule) {
   }
 }
 
+const ignoreRouter = [/^\/components\//, /^\/mixins\//]
+
 module.exports = {
-  // router: {
-  //   mode: 'hash'
-  // },
+  messages: {
+    error_404: '您访问的资源不存在',
+    back_to_home: '返回首页',
+    server_error: '服务器错误'
+  },
+  router: {
+    extendRoutes(routes) {
+      if (routes == null) {
+        return
+      }
+      for (let i = 0; i < routes.length; i++) {
+        const item = routes[i]
+        ignoreRouter.some(ignore => {
+          if (ignore.test(item.path)) {
+            routes.splice(i--, 1)
+            return true
+          }
+          return false
+        })
+      }
+    }
+  },
   plugins: [
   ],
   build: {

@@ -38,6 +38,7 @@
     "shelljs": "^0.7.8"
   },
   "devDependencies": {
+    "@types/fs-extra": "^4.0.2",
     "@types/koa": "^2.0.39",
     "@types/koa-router": "^7.0.23",
     "@types/lodash": "^4.14.74",

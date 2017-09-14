@@ -48,6 +48,12 @@
   dependencies:
     "@types/node" "*"
 
+"@types/fs-extra@^4.0.2":
+  version "4.0.2"
+  resolved "http://registry.npm.taobao.org/@types/fs-extra/download/@types/fs-extra-4.0.2.tgz#7b9b1bbf85962cbe029b5a83c9b530d7c75af3ba"
+  dependencies:
+    "@types/node" "*"
+
 "@types/glob@*":
   version "5.0.32"
   resolved "http://registry.npm.taobao.org/@types/glob/download/@types/glob-5.0.32.tgz#aec5cfe987c72f099fdb1184452986aa506d5e8f"
