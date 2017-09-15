@@ -9,11 +9,11 @@ const pull = require('../client/pull')
 const app = express()
 const router = Router()
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+// // parse application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: false }))
 
-// parse application/json
-app.use(bodyParser.json())
+// // parse application/json
+// app.use(bodyParser.json())
 
 // parse an HTML body into a string
 // app.use(bodyParser.text({ type: 'text/html' }))
@@ -66,7 +66,7 @@ if (config.dev) {
     ws: true
   }))
 } else {
-  router.post('/sync', async function(request, response, next) {
+  router.post('/sync', bodyParser.json(), async function(request, response, next) {
     const data = request.body || {}
     logger.info('/sync ----> ', data)
     if (data.authKey == null) {
