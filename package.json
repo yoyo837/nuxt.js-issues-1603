@@ -33,10 +33,7 @@
     "moment": "^2.18.1",
     "nuxt": "1.0.0-rc11",
     "request": "^2.81.0",
-    "shelljs": "^0.7.8",
-    "vue": "^2.4.4",
-    "vue-router": "^2.7.0",
-    "vue-server-renderer": "^2.4.4"
+    "shelljs": "^0.7.8"
   },
   "devDependencies": {
     "@types/express": "^4.0.37",
@@ -45,7 +42,6 @@
     "@types/log4js": "^0.0.33",
     "@types/request": "^2.0.3",
     "@types/shelljs": "^0.7.4",
-    "ajv": "^5.2.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-component": "^0.10.0",
@@ -61,7 +57,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
-    "vue-template-compiler": "^2.4.4",
     "webpack": "^3.5.6"
   }
 }
