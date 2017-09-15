@@ -85,7 +85,15 @@ module.exports = {
     vendor: [
       'element-ui', 'mint-ui', 'axios', 'moment', 'lodash'
     ],
-    extend(config, {isClient}) {
+    extend(config, ctx) {
+      if (ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
       config.devtool = '#source-map'
       const md = config.module = config.module || {}
 
