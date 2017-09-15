@@ -22,6 +22,7 @@ app.set('port', port)
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
+// const isHashUrl = config.router && config.router.mode === 'hash'
 config.dev = !(process.env.NODE_ENV === 'production')
 
 const logger = log.getLogger(config.dev)
@@ -88,11 +89,13 @@ if (config.dev) {
   })
 }
 
+router.all(/^((?!\.do$).)*$/, nuxt.render)
+
 // Import API Routes
 app.use(router)
 
 // Give nuxt middleware to express
-app.use(nuxt.render)
+// app.use(nuxt.render)
 
 // Listen the server
 app.listen(port, host)
