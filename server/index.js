@@ -50,7 +50,6 @@ async function nuxtBuild() {
     }
   }).then(() => {
     promise = null // 置空
-    logger.info()
   })
   await promise
 }
@@ -64,7 +63,6 @@ if (config.dev) {
 } else {
   router.post('/sync', async function(request, response, next) {
     const data = request.body || {}
-    logger.info()
     logger.info('/sync ----> ', data)
     if (data.authKey == null) {
       response.status(401)
