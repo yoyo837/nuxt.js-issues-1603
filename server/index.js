@@ -99,9 +99,9 @@ app.use(router.allowedMethods({
 router.get(isHashUrl ? /(^\/_nuxt(?:\/|$))|(^\/(?:__webpack_hmr|$)$)/ : /^((?!\.do$).)*$/, async function(ctx, next) {
   ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 
-  if (ctx.request.url === '/' || ctx.request.url.startsWith('/?')) {
-    logger.info('get:', ctx.request.url)
-  }
+  // if (ctx.request.url === '/' || ctx.request.url.startsWith('/?')) {
+  //   logger.info('get:', ctx.request.url)
+  // }
 
   await new Promise((resolve, reject) => {
     ctx.res.on('close', resolve)
