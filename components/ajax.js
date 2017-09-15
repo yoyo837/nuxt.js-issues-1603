@@ -32,6 +32,9 @@ function ajaxCover(response) {
   let result = response.data
   const config = response.config || {}
   const myOptions = config[custOptKey]
+  if (myOptions == null) { // myOptions无值必然没有经过请求拦截的逻辑，相当于初始化也没有
+    return
+  }
   if (--ajaxCounter === 0) {
     popup.loadingClose(myOptions._loadingInstance)
   }
