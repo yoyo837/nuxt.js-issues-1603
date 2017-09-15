@@ -58,7 +58,8 @@ nuxtBuild()
 
 if (config.dev) {
   config.devProxy && router.all(/\.do$/, proxy({
-    target: config.devProxy
+    target: config.devProxy,
+    changeOrigin: true
   }))
 } else {
   router.post('/sync', async function(request, response, next) {
