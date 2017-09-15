@@ -15,6 +15,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// parse an HTML body into a string
+// app.use(bodyParser.text({ type: 'text/html' }))
+
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 9086
 
