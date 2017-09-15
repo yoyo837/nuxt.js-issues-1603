@@ -86,8 +86,10 @@ module.exports = {
       'element-ui', 'mint-ui', 'axios', 'moment', 'lodash'
     ],
     extend(config, ctx) {
+      const md = config.module = config.module || {}
+      const rules = md.rules = md.rules || []
       if (ctx.isClient) {
-        config.module.rules.push({
+        rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
@@ -95,9 +97,6 @@ module.exports = {
         })
       }
       config.devtool = '#source-map'
-      const md = config.module = config.module || {}
-
-      const rules = md.rules = md.rules || []
       rules.forEach(function(rule) {
         if (rule.loader) {
           setSourceMapForLoader(rule)
