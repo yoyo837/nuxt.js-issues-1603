@@ -139,6 +139,9 @@ module.exports = {
       }, {
         rel: 'stylesheet',
         href: '//cdnstatic.ydmap.com.cn/static/normalize.css/7.0.0/normalize.css'
+      // }, {
+      //   rel: 'stylesheet',
+      //   href: '//cdnstatic.ydmap.com.cn/static/font-awesome/4.7.0/css/font-awesome.min.css'
       }
     ],
     script: []
