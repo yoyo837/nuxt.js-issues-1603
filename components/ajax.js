@@ -136,7 +136,7 @@ export default {
     if (options.form) { // application/x-www-form-urlencoded format
       const formParams = new URLSearchParams()
       for (var key in params) {
-        formParams.append(key, params[key])
+        formParams.append(key, params[key] == null ? '' : params[key])
       }
       params = formParams
     }
