@@ -40,6 +40,14 @@ function ajaxCover(response) {
   }
   const resolve = myOptions.resolve
   const reject = myOptions.reject
+  // 只要result是合法的json就不存在需要手动转换的需要，但http异常时result可能直接是异常消息字符串
+  // if (_.isString(result)) {
+  //   try {
+  //     result = JSON.parse(result)
+  //   } catch (e) {
+  //     reject(e)
+  //   }
+  // }
   if (!_.isPlainObject(result)) { // 非对象转换成对象
     result = {
       code: response.status,
@@ -103,8 +111,8 @@ export default {
     }
     return url
   },
-  get(url, params, options = {}) {
-    return new Promise(function(resolve, reject) {
+  async get(url, params, options = {}) {
+    const result = await new Promise(function(resolve, reject) {
       // 合并地址栏参数和对象参数
       const sps = url.split('?')
       const params0 = utils.getPageParams(sps[1] || '')
@@ -119,8 +127,9 @@ export default {
         })
       }))
     })
+    return result
   },
-  post(url, params, options = {}) {
+  async post(url, params, options = {}) {
     if (options.form == null) { // 默认表单提交
       options.form = true
     }
@@ -131,7 +140,7 @@ export default {
       }
       params = formParams
     }
-    return new Promise(function(resolve, reject) {
+    const result = await new Promise(function(resolve, reject) {
       axios.post(url, params, _.assign(requestConfig, {
         [custOptKey]: _.assign(options, {
           resolve,
@@ -139,5 +148,11 @@ export default {
         })
       }))
     })
+    return result
+  },
+  async postJSON(url, params, options = {}) {
+    options.form = false
+    const result = await this.post(url, params, options)
+    return result
   }
 }
