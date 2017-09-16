@@ -2,6 +2,7 @@ import express, { Router } from 'express'
 import bodyParser from 'body-parser'
 import proxy from 'http-proxy-middleware'
 import {Nuxt, Builder} from 'nuxt'
+import opn from 'opn'
 import log from './log'
 
 const pull = require('../client/pull')
@@ -57,7 +58,13 @@ async function nuxtBuild() {
   await promise
 }
 
-nuxtBuild()
+const uri = `http://${host}:${port}`
+
+nuxtBuild().then(() => {
+  if (config.dev) {
+    opn(uri)
+  }
+})
 
 if (config.dev) {
   config.devProxy && router.all(/\.do$/, proxy({
@@ -103,4 +110,4 @@ app.use(router)
 // Listen the server
 app.listen(port, host)
 
-console.log('Server listening on ' + host + ':' + port)
+console.log(`Server listening on ${uri}`)

@@ -64,6 +64,12 @@
   version "8.0.26"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-8.0.26.tgz#4d58be925306fd22b1141085535a0268b8beb189"
 
+"@types/opn@^3.0.28":
+  version "3.0.28"
+  resolved "http://registry.npm.taobao.org/@types/opn/download/@types/opn-3.0.28.tgz#097d0d1c9b5749573a5d96df132387bb6d02118a"
+  dependencies:
+    "@types/node" "*"
+
 "@types/request@^2.0.3":
   version "2.0.3"
   resolved "http://registry.npm.taobao.org/@types/request/download/@types/request-2.0.3.tgz#bdf0fba9488c822f77e97de3dd8fe357b2fb8c06"
@@ -3534,6 +3540,10 @@ is-windows@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/is-windows/download/is-windows-1.0.1.tgz#310db70f742d259a16a369202b51af84233310d9"
 
+is-wsl@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/is-wsl/download/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
+
 isarray@0.0.1:
   version "0.0.1"
   resolved "http://registry.npm.taobao.org/isarray/download/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
@@ -4582,6 +4592,12 @@ opn@4.0.2:
   dependencies:
     object-assign "^4.0.1"
     pinkie-promise "^2.0.0"
+
+opn@^5.1.0:
+  version "5.1.0"
+  resolved "http://registry.npm.taobao.org/opn/download/opn-5.1.0.tgz#72ce2306a17dbea58ff1041853352b4a8fc77519"
+  dependencies:
+    is-wsl "^1.1.0"
 
 optionator@^0.8.1, optionator@^0.8.2:
   version "0.8.2"
