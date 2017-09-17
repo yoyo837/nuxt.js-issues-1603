@@ -21,9 +21,10 @@ webpack通过配置视一切资源都是模块，构建方式按模块依赖链�
 
 针对web开发，推荐编辑器 [Visual Studio Code](https://code.visualstudio.com/) (从1.15.0开始提供64bit构建版本) 或者 [Sublime Text 3](http://www.sublimetext.com/3), 与环境配置的 [eslint](http://eslint.org/)、[editorconfig](http://editorconfig.org/) 等工具良好集成，并支持各种可选插件对IDE功能加以拓展，提高开发效率和质量。
 
+如果使用 **Visual Studio Code** 作为开发工具，
 > 请在设置中将文件夹图标主题设置为 **vscode-icons** ，将颜色主题设置为 **Dark+ (default dark)**
 
-如果使用 **Visual Studio Code** 作为开发工具，推荐安装的扩展有:
+推荐安装的扩展有:
 - vscode-icons
 - tortoise-svn
 - sass
