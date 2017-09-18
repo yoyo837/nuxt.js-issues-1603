@@ -117,6 +117,13 @@ export default {
       const sps = url.split('?')
       const params0 = utils.getPageParams(sps[1] || '')
       _.assign(params0, params)
+      const keys = Object.keys(params0)
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i]
+        if (params0[key] == null) {
+          params0[key] = ''
+        }
+      }
       const hash = url.split('#')[1]
       const search = utils.serialize(params0)
       url = `${sps[0]}${search.length ? `?${search}` : ''}${hash ? `#${hash}` : ''}`
