@@ -33,7 +33,8 @@ function coverDefaultOpts(options) {
   }
 }
 
-export const TOAST_DURATION = 1000 * 3
+const TOAST_DURATION = 1000 * 3
+// export const TOAST_DURATION = 1000 * 3
 
 export default {
   /**
@@ -44,13 +45,18 @@ export default {
   alert(msg, options = {}) {
     coverDefaultOpts(options)
     if (options.isMobile) {
+      if (typeof options.callback === 'function') {
+        setTimeout(options.callback, TOAST_DURATION)
+      }
       return Toast({
         message: msg,
         position: 'bottom',
         duration: TOAST_DURATION
       })
     }
-    return MessageBox.alert(msg, '提示')
+    return MessageBox.alert(msg, '提示', {
+      callback: options.callback
+    })
   },
   /**
    * 等待框

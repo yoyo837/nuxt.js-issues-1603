@@ -3,6 +3,7 @@ import _ from 'lodash'
 const CDN_STATIC_HOST = '//cdnstatic.ydmap.com.cn'
 const CDN_IMG_HOST = '//cdnimg.ydmap.com.cn'
 const DEFAULT_USER_AVATAR_PIC_PATH = `${CDN_IMG_HOST}/publicuser/0/`
+const DEFAULT_TEAM_AVATAR_PIC_FULLPATH = `${CDN_STATIC_HOST}/themes/mobile/common/images/team_img.jpg`
 
 function screenSize() {
   if (process.browser) {
@@ -54,6 +55,10 @@ export default {
    * 默认头像前缀
    */
   DEFAULT_USER_AVATAR_PIC_PATH,
+  /**
+   * 默认团队头像
+   */
+  DEFAULT_TEAM_AVATAR_PIC_FULLPATH,
   /**
    * 把对象序列化为url查询参数字符串
    */
