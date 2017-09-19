@@ -95,6 +95,9 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+
+        config.externals = config.externals || {}
+        config.externals['jweixin'] = 'wx'
       }
       config.devtool = '#source-map'
       rules.forEach(function(rule) {

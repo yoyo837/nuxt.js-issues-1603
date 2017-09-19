@@ -15,6 +15,19 @@ function screenSize() {
   return {} // ssr
 }
 
+function isWeiXin() {
+  if (process.browser) {
+    return !!navigator.userAgent.toLowerCase().match(/micromessenger/)
+  }
+  return false
+}
+function isiOS() {
+  if (process.browser) {
+    return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+  }
+  return false
+}
+
 function isMobile() {
   return screenSize().width < 768
 }
@@ -49,6 +62,7 @@ function getPageParams(search) {
 }
 
 export default {
+  entryUrl: process.browser ? window.location.href.split('#')[0] : '',
   CDN_STATIC_HOST,
   CDN_IMG_HOST,
   /**
@@ -82,5 +96,7 @@ export default {
     isMobile(str) {
       return /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/.test(str)
     }
-  }
+  },
+  isWeiXin,
+  isiOS
 }

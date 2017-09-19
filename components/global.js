@@ -8,6 +8,15 @@ Vue.prototype.$http = ajax
 Vue.prototype.CDN_STATIC_HOST = utils.CDN_STATIC_HOST
 Vue.prototype.CDN_IMG_HOST = utils.CDN_IMG_HOST
 
+Vue.prototype.$wxConfig = async function(url) {
+  if (utils.isWeiXin()) {
+    await this.$http.get('/pubUser/getJsConfig.do', {
+      url: url || (utils.isiOS ? utils.entryUrl : (process.browser ? window.location.href.split('#')[0] : ''))
+    })
+  }
+  await {}
+}
+
 export default function (router) {
   ajax.setRouter(router)
 }
