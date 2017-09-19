@@ -2,17 +2,19 @@ import Vue from 'vue'
 import utils from './utils'
 import {
   Loading,
-  MessageBox
+  MessageBox as EMB
 } from 'element-ui'
 import {
   Indicator,
-  Toast
+  Toast,
+  MessageBox as MMB
 } from 'mint-ui'
 
 Vue.use(Loading)
 Vue.use(Indicator)
-Vue.component(MessageBox.name, MessageBox)
+Vue.component(EMB.name, EMB)
 Vue.component(Toast.name, Toast)
+Vue.component(MMB.name)
 
 const IndicatorSingle = {
   close() {
@@ -54,7 +56,7 @@ export default {
         duration: TOAST_DURATION
       })
     }
-    return MessageBox.alert(msg, '提示', {
+    return EMB.alert(msg, '提示', {
       callback: options.callback
     })
   },
@@ -82,5 +84,13 @@ export default {
       return
     }
     instance.close()
+  },
+  confirm(msg, options = {}) {
+    msg = msg || '确定执行此操作?'
+    coverDefaultOpts(options)
+    if (options.isMobile) {
+      return MMB.confirm(msg)
+    }
+    return EMB.confirm(msg)
   }
 }
