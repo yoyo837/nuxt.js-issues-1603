@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import ajax from '../components/ajax'
 import utils from '../components/utils'
+import popup from '../components/popup'
 
 Vue.config.productionTip = false
 
@@ -19,7 +20,9 @@ Vue.prototype.$wxConfig = async function (url, throwError) {
     })
   } else {
     if (throwError) {
-      throw new Error('请在微信中运行该功能')
+      const error = new Error('请在微信中运行该功能')
+      popup.alert(error.message)
+      throw error
     }
     await {}
   }
