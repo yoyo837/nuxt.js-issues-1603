@@ -69,7 +69,7 @@ nuxtBuild().then(() => {
 if (config.dev) {
   config.devProxy && router.all(/\.do$/, proxy({
     target: config.devProxy,
-    changeOrigin: true,
+    // changeOrigin: true,
     ws: true
   }))
 } else {
