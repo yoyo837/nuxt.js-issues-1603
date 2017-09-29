@@ -2,12 +2,17 @@ import Vue from 'vue'
 import ajax from '../components/ajax'
 import utils from '../components/utils'
 import popup from '../components/popup'
+import store from '../components/store'
 
 Vue.config.productionTip = false
 
 Vue.prototype.$http = ajax
 Vue.prototype.CDN_STATIC_HOST = utils.CDN_STATIC_HOST
 Vue.prototype.CDN_IMG_HOST = utils.CDN_IMG_HOST
+Vue.prototype.$webStore = store
+Vue.prototype.$webStoreKey = {
+  srvInfo: '_SrvInfo_'
+}
 
 Vue.prototype.$wxConfig = async function (url, throwError) {
   if (typeof url === 'boolean') {
