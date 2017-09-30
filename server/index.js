@@ -99,7 +99,7 @@ if (config.dev) {
   })
 }
 
-router.all(/^((?!\.do$).)*$/, nuxt.render)
+router.all(/^((?!\.(do|shtml)$).)*$/, nuxt.render)
 
 // Import API Routes
 app.use(router)
