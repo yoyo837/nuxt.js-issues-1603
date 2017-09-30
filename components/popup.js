@@ -1,14 +1,7 @@
 import Vue from 'vue'
 import utils from './utils'
-import {
-  Loading,
-  MessageBox as EMB
-} from 'element-ui'
-import {
-  Indicator,
-  Toast,
-  MessageBox as MMB
-} from 'mint-ui'
+import {Loading, MessageBox as EMB} from 'element-ui'
+import {Indicator, Toast, MessageBox as MMB} from 'mint-ui'
 
 Vue.use(Loading)
 Vue.use(Indicator)
@@ -50,15 +43,9 @@ export default {
       if (typeof options.callback === 'function') {
         setTimeout(options.callback, TOAST_DURATION)
       }
-      return Toast({
-        message: msg,
-        position: 'bottom',
-        duration: TOAST_DURATION
-      })
+      return Toast({message: msg, position: 'bottom', duration: TOAST_DURATION})
     }
-    return EMB.alert(msg, '提示', {
-      callback: options.callback
-    })
+    return EMB.alert(msg, '提示', {callback: options.callback})
   },
   /**
    * 等待框
@@ -71,9 +58,7 @@ export default {
       return IndicatorSingle // 单例
     }
     // 全屏时返回同一个实例
-    return Loading.service({
-      fullscreen: options.fullscreen
-    })
+    return Loading.service({fullscreen: options.fullscreen})
   },
   /**
    * 关闭等待框
@@ -92,5 +77,13 @@ export default {
       return MMB.confirm(msg)
     }
     return EMB.confirm(msg)
+  },
+  prompt(msg, options = {}) {
+    msg = msg || '请填写'
+    coverDefaultOpts(options)
+    if (options.isMobile) {
+      return MMB.prompt(msg, options.title)
+    }
+    return EMB.prompt(msg, options.title)
   }
 }
