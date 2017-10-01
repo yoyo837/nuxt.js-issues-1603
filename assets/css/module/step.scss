@@ -1,0 +1,20 @@
+.el-steps {
+    &.is-horizontal {
+        padding-top: 20px;
+    }
+    .el-step {
+        &.is-horizontal {
+            text-align: center;
+            .el-step__head {
+                display: inline-block;
+                .el-step__line {
+                    transform: translate(50%)
+                }
+            }
+            .el-step__main {
+                text-align: center;
+                padding: 0 10px;
+            }
+        }
+    }
+}
