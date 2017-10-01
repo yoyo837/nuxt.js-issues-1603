@@ -153,29 +153,15 @@ yarn run build
 
 none
 
-## Build Setup
+## Git
 
-``` bash
-# install dependencies
-npm install
+# 关于ydmap-web-portal/ydmap-ssr-portal-pages
 
-# serve with hot reload at localhost:3001
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+此repo是ydmap-ssr-portal的模板页子模块submodule, 拉取ydmap-ssr-portal时请添加--recursive参数, 或者使用
+```shell
+git submodule init
+git submodule update
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> 由于Visual Studio Code团队还在讨论git submodule功能的实现计划，故此暂时不能支持在Visual Studio Code工具内直接操作git commit/pull/push等操作，但关联子项目是没有问题的。请使用客户端工具(如[TortoiseGit](https://tortoisegit.org/))或者命令行终端进行git submodule子模块的相关操作。
+
