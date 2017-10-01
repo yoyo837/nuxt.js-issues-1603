@@ -23,9 +23,17 @@
   white-space: nowrap;
 }
 
-.text-overflow-line2 {
+@mixin text-overflow-line($number) {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: $number;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.text-overflow-line2 {
+  @include text-overflow-line(2)
+}
+
+.text-overflow-line3 {
+  @include text-overflow-line(3)
 }
