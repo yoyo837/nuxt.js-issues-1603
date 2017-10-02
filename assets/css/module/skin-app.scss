@@ -42,8 +42,12 @@ a {
     padding-top: 40px;
 }
 
-button.full-width {
-  width: 100%
+button,
+.el-select,
+.el-date-editor {
+    &.full-width {
+        width: 100%
+    }
 }
 
 .fixed-bt {

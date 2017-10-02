@@ -1,5 +1,29 @@
-form.el-form {
+.el-form {
     .el-form-item {
+        &.is-error {
+            .el-form {
+                .el-input__inner,
+                .el-textarea__inner {
+                    border-color: #bfcbd9;
+                }
+                .el-input__inner {
+                    &:hover {
+                        border-color: #8391a5;
+                    }
+                    &:focus {
+                        border-color: #20a0ff;
+                    }
+                }
+                .el-form-item {
+                    &.is-error {
+                        .el-input__inner,
+                        .el-textarea__inner {
+                            border-color: #ff4949;
+                        }
+                    }
+                }
+            }
+        }
         .el-input~button.btn-right {
             width: auto;
             position: absolute;
@@ -8,15 +32,21 @@ form.el-form {
             padding: 8px 12px;
         }
     }
+
+    .form-upload {
+      .el-upload {
+        width: 100%;
+      }
+    }
 }
 
-form.el-form.mintui-style {
+.el-form.mintui-style {
     padding: 8px;
     .el-form-item {
-      .el-radio-group {
-        .el-radio {
-          margin: 0 15px 5px 0;
+        .el-radio-group {
+            .el-radio {
+                margin: 0 15px 5px 0;
+            }
         }
-      }
     }
 }
