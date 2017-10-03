@@ -20,7 +20,7 @@ export default {
             if (this.value) {
               input.setAttribute(holdKey, true)
               ajax.post('/commonFile/filesSave.do', {
-                pubAccountId,
+                objectId: pubAccountId,
                 relType,
                 file: input
               }, {multiForm: true}).then(data => {
