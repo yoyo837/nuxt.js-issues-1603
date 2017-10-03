@@ -137,7 +137,7 @@ export default {
     return result
   },
   async post(url, params, options = {}) {
-    if (options.form == null) { // 默认表单提交
+    if (options.form == null && options.multiForm == null) { // 默认表单提交
       options.form = true
     }
     if (options.form) { // application/x-www-form-urlencoded format
@@ -146,6 +146,11 @@ export default {
         formParams.append(key, params[key] == null ? '' : params[key])
       }
       params = formParams
+    } else if (options.multiForm) {
+      options.headers = options.headers || {}
+      options.headers['Content-Type'] = 'multipart/form-data'
+      const formData = new FormData()
+      params = formData
     }
     const result = await new Promise(function(resolve, reject) {
       axios.post(url, params, _.assign(requestConfig, {
