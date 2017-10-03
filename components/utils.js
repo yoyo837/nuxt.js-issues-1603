@@ -98,5 +98,19 @@ export default {
     }
   },
   isWeiXin,
-  isiOS
+  isiOS,
+  disableBodyScroll() {
+    if (process.browser) {
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+      document.body.className += ' no-scroll'
+    }
+  },
+  enableBodyScroll() {
+    if (process.browser) {
+      document.body.className = document.body.className.split(' ').filter(name => {
+        return name.length > 0 && name !== 'no-scroll'
+      }).join(' ')
+    }
+  }
 }

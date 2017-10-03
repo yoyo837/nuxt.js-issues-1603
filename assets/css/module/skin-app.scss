@@ -11,6 +11,10 @@ body.bd-bg .ctx-bg {
     background-color: white;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 a {
     $linkColor: #48576a;
     font-size: 14px;
