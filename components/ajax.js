@@ -142,7 +142,7 @@ export default {
     }
     if (options.form) { // application/x-www-form-urlencoded format
       const formParams = new URLSearchParams()
-      for (var key in params) {
+      for (let key in params) {
         formParams.append(key, params[key] == null ? '' : params[key])
       }
       params = formParams
@@ -150,6 +150,14 @@ export default {
       options.headers = options.headers || {}
       options.headers['Content-Type'] = 'multipart/form-data'
       const formData = new FormData()
+      for (let key in params) {
+        const value = params[key]
+        if (value instanceof Element) {
+          formData.append(key, value.files[0]) // 单选文件
+        } else {
+          formData.append(key, value)
+        }
+      }
       params = formData
     }
     const result = await new Promise(function(resolve, reject) {
