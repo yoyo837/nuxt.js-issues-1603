@@ -7,6 +7,7 @@ import _ from 'lodash'
 import axios from 'axios'
 import popup from './popup'
 import utils from './utils'
+const nuxtConfig = require('../nuxt.config')
 // import router from '../router'
 let router
 
@@ -19,6 +20,7 @@ let ajaxCounter = 0
 const defaultCodeMsg = {
   'NaN': '未知错误',
   '0': '与服务器通信失败，请检查网络',
+  '302': '跳转中...',
   '404': '您要访问的资源不存在',
   '401': '请先登录后在操作',
   '403': '您未授权访问请求的资源，请联系相关人员后再试'
@@ -61,8 +63,24 @@ function ajaxCover(response) {
     const msg = result.msg || defaultCodeMsg[result.code] || '系统内部错误'
     popup.alert(msg)
     reject(new Error(msg))
-    if (result.code === 401) {
-      router.push(`/user/login?redirectURL=${encodeURIComponent(location.href)}`)
+    switch (result.code) {
+      case 302:
+        const redirectURL = (response.headers || {})['Location'.toLowerCase()]
+        if (redirectURL) {
+          const isHashUrl = nuxtConfig.router.router && nuxtConfig.router.router.mode === 'hash'
+          const prefix = `${location.protocol}//${location.host}${isHashUrl ? '/#' : ''}`
+          if (redirectURL.startsWith(prefix)) {
+            router.replace(redirectURL.substr(prefix.length))
+          } else {
+            location.replace(redirectURL)
+          }
+        } else {
+          popup.alert('302重定向地址无效')
+        }
+        break
+      case 401:
+        router.push(`/user/login?redirectURL=${encodeURIComponent(location.href)}`)
+        break
     }
   }
 }
