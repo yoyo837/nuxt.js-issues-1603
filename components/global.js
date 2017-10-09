@@ -20,17 +20,17 @@ Vue.prototype.$wxConfig = async function (url, throwError) {
     url = null
   }
   if (utils.isWeiXin()) {
-    await this.$http.get('/pubUser/getJsConfig.do', {
+    const result = await this.$http.get('/pubUser/getJsConfig.do', {
       url: url || (utils.isiOS ? utils.entryUrl : (process.browser ? window.location.href.split('#')[0] : ''))
     })
-  } else {
-    if (throwError) {
-      const error = new Error('请在微信中运行该功能')
-      popup.alert(error.message)
-      throw error
-    }
-    await {}
+    return result
   }
+  if (throwError) {
+    const error = new Error('请在微信中运行该功能')
+    popup.alert(error.message)
+    throw error
+  }
+  await {}
 }
 
 export default function (router) {
