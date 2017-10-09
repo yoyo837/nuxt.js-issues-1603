@@ -7,7 +7,7 @@ import _ from 'lodash'
 import axios from 'axios'
 import popup from './popup'
 import utils from './utils'
-const nuxtConfig = require('../nuxt.config')
+// const nuxtConfig = require('../nuxt.config')
 // import router from '../router'
 let router
 
@@ -64,20 +64,20 @@ function ajaxCover(response) {
     popup.alert(msg)
     reject(new Error(msg))
     switch (result.code) {
-      case 302:
-        const redirectURL = (response.headers || {})['Location'.toLowerCase()]
-        if (redirectURL) {
-          const isHashUrl = nuxtConfig.router.router && nuxtConfig.router.router.mode === 'hash'
-          const prefix = `${location.protocol}//${location.host}${isHashUrl ? '/#' : ''}`
-          if (redirectURL.startsWith(prefix)) {
-            router.replace(redirectURL.substr(prefix.length))
-          } else {
-            location.replace(redirectURL)
-          }
-        } else {
-          popup.alert('302重定向地址无效')
-        }
-        break
+      // case 302:
+      //   const redirectURL = (response.headers || {})['Location'.toLowerCase()]
+      //   if (redirectURL) {
+      //     const isHashUrl = nuxtConfig.router.router && nuxtConfig.router.router.mode === 'hash'
+      //     const prefix = `${location.protocol}//${location.host}${isHashUrl ? '/#' : ''}`
+      //     if (redirectURL.startsWith(prefix)) {
+      //       router.replace(redirectURL.substr(prefix.length))
+      //     } else {
+      //       location.replace(redirectURL)
+      //     }
+      //   } else {
+      //     popup.alert('302重定向地址无效')
+      //   }
+      //   break
       case 401:
         router.push(`/user/login?redirectURL=${encodeURIComponent(location.href)}`)
         break
