@@ -1,4 +1,5 @@
 // const fsextra = require('fs-extra')
+const _ = require('lodash')
 const sourceMapLoader = ['vue-style-loader', 'css-loader', 'postcss-loader', 'stylus-loader', 'sass-loader', 'less-loader']
 
 function setSourceMapForLoader(rule) {
@@ -88,6 +89,7 @@ module.exports = {
     extend(config, ctx) {
       const md = config.module = config.module || {}
       const rules = md.rules = md.rules || []
+
       if (ctx.isClient) {
         rules.push({
           enforce: 'pre',
@@ -95,11 +97,19 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
-
-        config.externals = config.externals || {}
-        config.externals['jweixin'] = 'wx'
       }
+
+      config.externals = config.externals || {}
+      if (_.isPlainObject(config.externals)) {
+        config.externals['jweixin'] = 'wx'
+      } else if (_.isArray(config.externals)) {
+        config.externals.push({
+          jweixin: 'wx'
+        })
+      }
+
       config.devtool = '#source-map'
+
       rules.forEach(function(rule) {
         if (rule.loader) {
           setSourceMapForLoader(rule)
