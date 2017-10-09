@@ -99,14 +99,15 @@ module.exports = {
         })
       }
 
-      config.externals = config.externals || {}
-      if (_.isPlainObject(config.externals)) {
-        config.externals['jweixin'] = 'wx'
-      } else if (_.isArray(config.externals)) {
-        config.externals.push({
-          jweixin: 'wx'
-        })
-      }
+      // nuxt.config.js的externals配置似乎不可用
+      // config.externals = config.externals || {}
+      // if (_.isPlainObject(config.externals)) {
+      //   config.externals['jweixin'] = 'wx'
+      // } else if (_.isArray(config.externals)) {
+      //   config.externals.push({
+      //     jweixin: 'wx'
+      //   })
+      // }
 
       config.devtool = '#source-map'
 
