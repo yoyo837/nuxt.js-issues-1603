@@ -89,7 +89,9 @@ function ajaxCover(response) {
 axios.interceptors.request.use(function(config) {
   ajaxCounter++
   const myOptions = config[custOptKey]
-  myOptions._loadingInstance = popup.loading()
+  if (!myOptions.silent) {
+    myOptions._loadingInstance = popup.loading()
+  }
   return config
 }, function(fail) {
   return Promise.reject(fail)
