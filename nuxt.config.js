@@ -1,5 +1,5 @@
 // const fsextra = require('fs-extra')
-const _ = require('lodash')
+// const _ = require('lodash')
 const sourceMapLoader = ['vue-style-loader', 'css-loader', 'postcss-loader', 'stylus-loader', 'sass-loader', 'less-loader']
 
 function setSourceMapForLoader(rule) {
