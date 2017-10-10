@@ -9,8 +9,8 @@ if (process.env.NODE_ENV == null) {
 const isProd = process.env.NODE_ENV === 'production'
 
 const hostList = isProd
-  ? [] // 正式
-  : ['ssr.vipwindows.com'] // 测试
+  ? ['120.24.58.104', '120.76.22.148'] // 正式
+  : ['ssr.vipwindows.com'] // 测试, 单机可写域名
 
 const promiseList = []
 
