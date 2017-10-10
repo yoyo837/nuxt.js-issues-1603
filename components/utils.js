@@ -36,7 +36,10 @@ function serialize(obj) {
   if (_.isPlainObject(obj)) {
     const strs = []
     for (var key in obj) {
-      const value = obj[key]
+      let value = obj[key]
+      if (_.isArray(value) || _.isPlainObject(value)) {
+        value = JSON.stringify(value)
+      }
       strs.push(`${key}=${typeof value === 'undefined' ? '' : encodeURIComponent(value)}`)
     }
     return strs.join('&')
