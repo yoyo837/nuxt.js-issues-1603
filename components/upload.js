@@ -16,23 +16,23 @@ export default {
           input.setAttribute('id', domId)
           // input.setAttribute('multiple', 'multiple') // 支持多选
           input.setAttribute('type', 'file')
-          input.onchange = function () {
-            if (this.value) {
-              input.setAttribute(holdKey, true)
-              ajax.post('/commonFile/filesSave.do', {
-                objectId: pubAccountId,
-                relType,
-                file: input
-              }, {multiForm: true}).then(data => {
-                input.removeAttribute(holdKey)
-                resolve({})
-              }).catch(e => {
-                input.removeAttribute(holdKey)
-                reject(e)
-              })
-            }
-          }
           document.body.appendChild(input)
+        }
+        input.onchange = function () { // 每次重写以保证resolve和reject的引用
+          if (this.value) {
+            input.setAttribute(holdKey, true)
+            ajax.post('/commonFile/filesSave.do', {
+              objectId: pubAccountId,
+              relType,
+              file: input
+            }, {multiForm: true}).then(data => {
+              input.removeAttribute(holdKey)
+              resolve(data)
+            }).catch(e => {
+              input.removeAttribute(holdKey)
+              reject(e)
+            })
+          }
         }
         if (input.getAttribute(holdKey)) {
           const msg = '正在处理上传任务，请稍后再试'
