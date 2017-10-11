@@ -7,6 +7,10 @@ rm -rf /data/ydmap/node/ydmap-ssr-portal
 
 mkdir -p /data/ydmap/node/ydmap-ssr-portal
 
+cd /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/
+
+git checkout master
+
 cp -r /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/ /data/ydmap/node/
 
 cd /data/ydmap/node/ydmap-ssr-portal/
