@@ -13,6 +13,8 @@ echo \# workspace/ydmap-ssr-portal/:
 
 git checkout master
 
+git pull
+
 cd ./pages
 
 echo \# workspace/ydmap-ssr-portal/pages:
