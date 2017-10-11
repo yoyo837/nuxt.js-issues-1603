@@ -24,6 +24,7 @@ git reset --hard HEAD
 git clean -f -d
 
 #git pull
+git pull
 
 cp -r /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/ /data/ydmap/node/
 
