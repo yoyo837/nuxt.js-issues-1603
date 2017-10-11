@@ -9,9 +9,13 @@ mkdir -p /data/ydmap/node/ydmap-ssr-portal
 
 cd /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/
 
+echo workspace/ydmap-ssr-portal/:
+
 git checkout master
 
 cd ./pages
+
+echo workspace/ydmap-ssr-portal/pages:
 
 git reset --hard HEAD
 
