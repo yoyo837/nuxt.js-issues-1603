@@ -110,4 +110,4 @@ app.use(router)
 // Listen the server
 app.listen(port, host)
 
-console.log(`Server listening on ${uri}`)
+logger.info(`Server listening on ${uri}`)
