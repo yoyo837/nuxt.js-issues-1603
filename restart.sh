@@ -18,6 +18,8 @@ git pull
 cd ./pages
 
 echo \# workspace/ydmap-ssr-portal/pages:
+    
+git checkout master
 
 git reset --hard HEAD
 
