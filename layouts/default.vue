@@ -19,11 +19,11 @@ const limitPath = '/error/wechat-limit'
 export default {
   name: 'app',
   beforeMount() {
-    // this.$router.beforeResolve((to, from, next) => {
-    //   this.checkAndRouteWeChatLimit(to, from, next)
-    // })
+    this.$router.beforeResolve((to, from, next) => {
+      this.checkAndRouteWeChatLimit(to, from, next)
+    })
     global(this.$router)
-    // this.checkAndRouteWeChatLimit()
+    this.checkAndRouteWeChatLimit()
   },
   components: {
     SkinApp
@@ -32,16 +32,14 @@ export default {
     checkAndRouteWeChatLimit(to, from, next) {
       to = to || this.$route
       if (!(to.path === limitPath || utils.isWeiXin())) {
-        // const serviceInfo = this.$webStore.session.get(this.$webStoreKey.srvInfo)
-        const serviceInfo = {
-          onlyInWechat: true
-        }
+        const serviceInfo = this.$webStore.session.get(this.$webStoreKey.srvInfo)
+        // const serviceInfo = {
+        //   onlyInWechat: true
+        // }
         if (serviceInfo && serviceInfo.onlyInWechat) {
           if (_.isFunction(next)) {
-            console.log('456', this.$route.path)
             next(limitPath)
           } else {
-            console.log('123', this.$route.path)
             this.$router.push(limitPath)
           }
           return
