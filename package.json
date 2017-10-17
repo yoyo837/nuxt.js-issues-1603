@@ -22,7 +22,7 @@
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "cross-env": "^5.0.5",
-    "element-ui": "^1.4.6",
+    "element-ui": "^1.4.7",
     "express": "^4.16.2",
     "fs-extra": "^4.0.2",
     "http-proxy-middleware": "^0.17.4",
