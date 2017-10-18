@@ -4,7 +4,7 @@ body {
 }
 
 body.bd-bg {
-    background-color: rgba(227, 227, 227, 0.45);
+    background-color: #F8F8F8;
 }
 
 body.bd-bg .ctx-bg {
@@ -12,11 +12,79 @@ body.bd-bg .ctx-bg {
 }
 
 body.no-scroll {
-  overflow: hidden;
+    overflow: hidden;
 }
 
+// placeholder
+$placeholder: #666;
+$dis-placeholder: #eee;
+.el-input__inner::-webkit-input-placeholder {
+    color: $placeholder;
+}
+
+.el-input__inner::-moz-placeholder {
+    color: $placeholder;
+}
+
+.el-input__inner:-ms-input-placeholder {
+    color: $placeholder;
+}
+
+.el-input__inner::placeholder {
+    color: $placeholder;
+}
+
+.el-textarea__inner::-webkit-input-placeholder {
+    color: $placeholder;
+}
+
+.el-textarea__inner::-moz-placeholder {
+    color: $placeholder;
+}
+
+.el-textarea__inner:-ms-input-placeholder {
+    color: $placeholder;
+}
+
+.el-textarea__inner::placeholder {
+    color: $placeholder;
+}
+
+.el-input.is-disabled .el-input__inner::-webkit-input-placeholder {
+    color: $dis-placeholder;
+}
+
+.el-input.is-disabled .el-input__inner::-moz-placeholder {
+    color: $dis-placeholder;
+}
+
+.el-input.is-disabled .el-input__inner:-ms-input-placeholder {
+    color: $dis-placeholder;
+}
+
+.el-input.is-disabled .el-input__inner::placeholder {
+    color: $dis-placeholder;
+}
+
+.el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder {
+    color: $dis-placeholder;
+}
+
+.el-textarea.is-disabled .el-textarea__inner::-moz-placeholder {
+    color: $dis-placeholder;
+}
+
+.el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder {
+    color: $dis-placeholder;
+}
+
+.el-textarea.is-disabled .el-textarea__inner::placeholder {
+    color: $dis-placeholder;
+}
+
+// 链接
 a {
-    $linkColor: #48576a;
+    $linkColor: #F26A3E;
     font-size: 14px;
     color: $linkColor;
     text-decoration: none;
@@ -25,39 +93,53 @@ a {
         color: $linkColor
     }
     &:hover {
-        color: #20a0ff;
+        color: #f48d6c;
     }
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
-.box {
-    padding: 1rem;
+// 容器
+.container {
+    margin: 0 auto;
+    &.container-pd {
+        // 普通内边距
+        padding: 10px;
+    }
+    &.container-shrink {
+        // 缩
+        padding: 25% 50px 0 50px;
+    }
+    &.container-portable {
+        // 限制移动设备最大
+        max-width: 990px;
+    }
 }
 
-.box-mini {
-    padding: 8px;
-}
-
+// toast
 .mint-toast,
 .mint-indicator-wrapper {
     z-index: 2003;
 }
 
+// header
 .has-fixed-nav-header {
     padding-top: 40px;
 }
 
-button,
-.el-select,
-.el-date-editor {
-    &.full-width {
-        width: 100%
-    }
+// 全宽
+.full-width {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
+.full-width+.full-width {
+    margin-left: 0;
+}
+
+// fixed
 .fixed-bt {
     padding: 5px;
     position: fixed;
@@ -81,7 +163,7 @@ button,
     }
 }
 
+@import './button.scss';
 @import './dialog.scss';
 @import './form.scss';
-@import './nav-panel-menu.scss';
 @import './step.scss';

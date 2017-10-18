@@ -1,0 +1,49 @@
+// 按钮
+.el-button {
+    font-size: 18px;
+}
+
+$btnMainColor: #F26A3E;
+$btnSubColor: #d96038;
+
+.el-button--primary {
+    background-color: $btnMainColor;
+    border-color: $btnMainColor;
+    &.is-active,
+    &:active {
+        background-color: $btnSubColor;
+        border-color: $btnSubColor;
+    }
+    &:focus,
+    &:hover {
+        background-color: $btnSubColor;
+        border-color: $btnSubColor;
+    }
+}
+
+.el-button--text {
+  font-size: inherit;
+}
+
+.el-button--text,
+.el-button--default {
+    color: $btnMainColor;
+    &:active {
+        color: $btnSubColor;
+    }
+    &:focus,
+    &:hover {
+        color: $btnSubColor;
+    }
+}
+
+.el-button--default {
+    border-color: $btnMainColor;
+    &:active {
+        border-color: $btnSubColor;
+    }
+    &:focus,
+    &:hover {
+        border-color: $btnSubColor;
+    }
+}

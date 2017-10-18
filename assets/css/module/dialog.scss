@@ -1,15 +1,11 @@
+.el-dialog__title {
+    color: #222;
+    font-size: 18px;
+}
+
 .portal-dialog {
     .el-dialog__header {
         text-align: center;
-    }
-    .el-input-group {
-        .el-input-group__append {
-            padding: 0;
-            img {
-                height: 31px;
-                cursor: pointer;
-            }
-        }
     }
     .el-button {
         margin-top: 20px;
@@ -20,5 +16,22 @@
 .portal-dialog-mobile {
     .el-dialog {
         width: 80%;
+    }
+}
+
+.verify-dialog {
+    .el-dialog__body {
+        text-align: center;
+        .el-form {
+            .el-form-item {
+                .el-form-item__content {
+                    .el-input {
+                        .el-input__inner {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

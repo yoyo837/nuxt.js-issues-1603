@@ -1,51 +1,28 @@
 .el-form {
     .el-form-item {
+        margin-bottom: 5px;
+        border: 1px solid transparent;
+        border-bottom-color: #D8D8D8;
         &.is-error {
-            .el-form {
-                .el-input__inner,
-                .el-textarea__inner {
-                    border-color: #bfcbd9;
-                }
+            border-color: #F26A3E;
+        }
+        .el-form-item__label {
+            text-align: left;
+            color: #999;
+        }
+        .el-form-item__content {
+            .el-input {
                 .el-input__inner {
-                    &:hover {
-                        border-color: #8391a5;
-                    }
-                    &:focus {
-                        border-color: #20a0ff;
-                    }
-                }
-                .el-form-item {
-                    &.is-error {
-                        .el-input__inner,
-                        .el-textarea__inner {
-                            border-color: #ff4949;
-                        }
-                    }
+                    color: #666;
+                    border: none;
+                    background-color: transparent;
+                    text-align: right;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
             }
-        }
-        .el-input~button.btn-right {
-            width: auto;
-            position: absolute;
-            right: 2px;
-            top: 2px;
-            padding: 8px 12px;
-        }
-    }
-
-    .form-upload {
-      .el-upload {
-        width: 100%;
-      }
-    }
-}
-
-.el-form.mintui-style {
-    padding: 8px;
-    .el-form-item {
-        .el-radio-group {
-            .el-radio {
-                margin: 0 15px 5px 0;
+            .el-form-item__error {
+                display: none;
             }
         }
     }
