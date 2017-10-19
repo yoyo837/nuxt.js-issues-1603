@@ -24,5 +24,6 @@
     "folderExclude": ["node_modules", ".vscode", ".svn"]
   },
   "prettier.singleQuote": true,
-  "prettier.semi":false
+  "prettier.semi":false,
+  "vetur.format.defaultFormatter.html": "js-beautify-html"
 }
