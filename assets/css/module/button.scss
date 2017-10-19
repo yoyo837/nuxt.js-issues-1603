@@ -9,6 +9,9 @@ $btnSubColor: #d96038;
 .el-button--primary {
     background-color: $btnMainColor;
     border-color: $btnMainColor;
+    &.shadow-button {
+      box-shadow: 0 2px 4px 2px rgba(242,106,62,0.20);
+    }
     &.is-active,
     &:active {
         background-color: $btnSubColor;
@@ -28,6 +31,9 @@ $btnSubColor: #d96038;
 .el-button--text,
 .el-button--default {
     color: $btnMainColor;
+    &.shadow-button {
+      box-shadow: 0 2px 4px 2px rgba(0,0,0,0.04);
+    }
     &:active {
         color: $btnSubColor;
     }
@@ -46,4 +52,10 @@ $btnSubColor: #d96038;
     &:hover {
         border-color: $btnSubColor;
     }
+}
+
+.el-button--ellipse {
+  border-radius: 100px;
+  border-color: #999;
+  color: #999;
 }

@@ -22,5 +22,7 @@
   },
   "TodoParser": {
     "folderExclude": ["node_modules", ".vscode", ".svn"]
-  }
+  },
+  "prettier.singleQuote": true,
+  "prettier.semi":false
 }

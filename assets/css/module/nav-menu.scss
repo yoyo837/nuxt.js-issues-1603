@@ -1,0 +1,22 @@
+.nav-menu {
+    line-height: 28px;
+    margin: -8px;
+    padding: 8px; // line-height: 36px;
+    .nav-menu-col {
+        &.nav-menu-title {
+            color: #222;
+            i {
+                color: #666;
+            }
+        }
+    }
+    i {
+        color: #d8d8d8;
+    }
+}
+
+.nav-menu+.nav-menu {
+    .nav-menu-col {
+        border-top: 1px solid #f0f0f0;
+    }
+}

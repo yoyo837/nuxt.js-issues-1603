@@ -116,6 +116,10 @@ a {
         // 限制移动设备最大
         max-width: 990px;
     }
+
+    .operation {
+      margin-top: 50px;
+    }
 }
 
 // toast
@@ -166,4 +170,6 @@ a {
 @import './button.scss';
 @import './dialog.scss';
 @import './form.scss';
+@import './card.scss';
+@import './nav-menu.scss';
 @import './step.scss';
