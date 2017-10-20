@@ -39,6 +39,14 @@
         margin-left: 8px; // 模拟此边的padding
       }
     }
+    .el-card {
+      &.profile-panel-card {
+        box-shadow: none;
+        .el-card__body {
+          padding: 0;
+        }
+      }
+    }
   }
 }
 

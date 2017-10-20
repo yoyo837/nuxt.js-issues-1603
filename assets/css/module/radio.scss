@@ -1,0 +1,10 @@
+.el-radio {
+  .el-radio__input {
+    &.is-checked {
+      .el-radio__inner {
+        border-color: #f26a3e;
+        background: #f26a3e;
+      }
+    }
+  }
+}

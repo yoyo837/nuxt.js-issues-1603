@@ -1,29 +1,33 @@
 .el-form {
-    .el-form-item {
-        margin-bottom: 5px;
-        border: 1px solid transparent;
-        border-bottom-color: #D8D8D8;
-        &.is-error {
-            border-color: #F26A3E;
-        }
-        .el-form-item__label {
-            text-align: left;
-            color: #999;
-        }
-        .el-form-item__content {
-            .el-input {
-                .el-input__inner {
-                    color: #666;
-                    border: none;
-                    background-color: transparent;
-                    text-align: right;
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-            }
-            .el-form-item__error {
-                display: none;
-            }
-        }
+  .el-form-item {
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+    border-bottom-color: #d8d8d8;
+    &.is-error {
+      border-color: #f26a3e;
     }
+    .el-form-item__label {
+      text-align: left;
+      color: #999;
+    }
+    .el-form-item__content {
+      .el-input {
+        .el-input__inner {
+          color: #666;
+          border: none;
+          background-color: transparent;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        &.text-right {
+          .el-input__inner {
+            text-align: right;
+          }
+        }
+      }
+      .el-form-item__error {
+        display: none;
+      }
+    }
+  }
 }
