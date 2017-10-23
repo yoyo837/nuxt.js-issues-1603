@@ -390,9 +390,9 @@ axios@^0.15.3:
   dependencies:
     follow-redirects "1.0.0"
 
-axios@^0.16.2:
-  version "0.16.2"
-  resolved "http://registry.npm.taobao.org/axios/download/axios-0.16.2.tgz#ba4f92f17167dfbab40983785454b9ac149c3c6d"
+axios@^0.17.0:
+  version "0.17.0"
+  resolved "http://registry.npm.taobao.org/axios/download/axios-0.17.0.tgz#7da747916db803f761651d6091d708789b953c6a"
   dependencies:
     follow-redirects "^1.2.3"
     is-buffer "^1.1.5"
@@ -1809,9 +1809,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^5.0.5:
-  version "5.0.5"
-  resolved "http://registry.npm.taobao.org/cross-env/download/cross-env-5.0.5.tgz#4383d364d9660873dd185b398af3bfef5efffef3"
+cross-env@^5.1.0:
+  version "5.1.0"
+  resolved "http://registry.npm.taobao.org/cross-env/download/cross-env-5.1.0.tgz#1f12d6b3777d5847dcf9cf39fbee3c6a76dd5058"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
@@ -4129,9 +4129,9 @@ lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, l
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-log4js@^2.3.4:
-  version "2.3.5"
-  resolved "http://registry.npm.taobao.org/log4js/download/log4js-2.3.5.tgz#36a3db5ed5c684632fdb6724f0c753be30f2f886"
+log4js@^2.3.7:
+  version "2.3.7"
+  resolved "http://registry.npm.taobao.org/log4js/download/log4js-2.3.7.tgz#f519ae1aec428b927100838ae7e787fa99e0ef7a"
   dependencies:
     date-format "^1.1.0"
     debug "^2.6.8"

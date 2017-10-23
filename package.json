@@ -19,15 +19,15 @@
     "sync-prod": "npm run gitcheck && nuxt build && cross-env NODE_ENV=production node client"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.0",
     "body-parser": "^1.18.2",
-    "cross-env": "^5.0.5",
+    "cross-env": "^5.1.0",
     "element-ui": "^1.4.7",
     "express": "^4.16.2",
     "fs-extra": "^4.0.2",
     "http-proxy-middleware": "^0.17.4",
     "lodash": "^4.17.4",
-    "log4js": "^2.3.4",
+    "log4js": "^2.3.7",
     "mint-ui": "^2.2.9",
     "moment": "^2.19.1",
     "nuxt": "1.0.0-rc11",
