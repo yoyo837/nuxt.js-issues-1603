@@ -1,170 +1,193 @@
 // 此皮肤的基础样式
 body {
-    min-width: 320px;
+  min-width: 320px;
 }
 
 body.bd-bg {
-    background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 body.bd-bg .ctx-bg {
-    background-color: white;
+  background-color: white;
 }
 
 body.no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 // placeholder
 $placeholder: #666;
 $dis-placeholder: #eee;
 .el-input__inner::-webkit-input-placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-input__inner::-moz-placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-input__inner:-ms-input-placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-input__inner::placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-textarea__inner::-webkit-input-placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-textarea__inner::-moz-placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-textarea__inner:-ms-input-placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-textarea__inner::placeholder {
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .el-input.is-disabled .el-input__inner::-webkit-input-placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-input.is-disabled .el-input__inner::-moz-placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-input.is-disabled .el-input__inner::placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-textarea.is-disabled .el-textarea__inner::-moz-placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 .el-textarea.is-disabled .el-textarea__inner::placeholder {
-    color: $dis-placeholder;
+  color: $dis-placeholder;
 }
 
 // 链接
 a {
-    $linkColor: #F26A3E;
-    font-size: 14px;
+  $linkColor: #f26a3e;
+  font-size: 14px;
+  color: $linkColor;
+  text-decoration: none;
+  outline: none;
+  &:visited {
     color: $linkColor;
-    text-decoration: none;
-    outline: none;
-    &:visited {
-        color: $linkColor
-    }
-    &:hover {
-        color: #f48d6c;
-    }
+  }
+  &:hover {
+    color: #f48d6c;
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 // 容器
 .container {
-    margin: 0 auto;
-    &.container-pd {
-        // 普通内边距
-        padding: 10px;
-    }
-    &.container-shrink {
-        // 缩
-        padding: 25% 50px 0 50px;
-    }
-    &.container-portable {
-        // 限制移动设备最大
-        max-width: 990px;
-    }
-
-    .operation {
-      margin-top: 50px;
-    }
+  margin: 0 auto;
+  &.container-pd {
+    // 普通内边距
+    padding: 10px;
+  }
+  &.container-shrink {
+    // 缩
+    padding: 25% 50px 0 50px;
+  }
+  &.container-portable {
+    // 限制移动设备最大
+    max-width: 990px;
+  }
+  .operation {
+    margin-top: 50px;
+  }
 }
 
 // toast
 .mint-toast,
 .mint-indicator-wrapper {
-    z-index: 2003;
+  z-index: 2003;
 }
 
 // header
 .has-fixed-nav-header {
-    padding-top: 40px;
+  padding-top: 40px;
+}
+
+.col-percent {
+  position: relative;
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+[class^='col-percent-'] {
+  float: left;
+}
+
+.col-percent-20 {
+  width: 20%;
+}
+
+.col-percent-25 {
+  width: 25%;
 }
 
 // 全宽
 .full-width {
-    width: 100%;
-    margin-bottom: 15px;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.full-width+.full-width {
-    margin-left: 0;
+.full-width + .full-width {
+  margin-left: 0;
 }
 
 // fixed
 .fixed-bt {
-    padding: 5px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    button {
-        width: 95%
-    }
-    a {
-        display: block;
-        width: 100;
-    }
-    .el-button+.el-button,
-    button+button,
-    a+button,
-    a+a,
-    button+a {
-        margin: 5px 0 0 0;
-    }
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  button {
+    width: 95%;
+  }
+  a {
+    display: block;
+    width: 100;
+  }
+  .el-button + .el-button,
+  button + button,
+  a + button,
+  a + a,
+  button + a {
+    margin: 5px 0 0 0;
+  }
 }
 
 @import './button.scss';
