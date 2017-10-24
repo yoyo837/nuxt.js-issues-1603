@@ -6,8 +6,8 @@ const holdKey = 'uploading'
 
 export default {
   // singleUpload() {
-  avatarUpload(pubAccountId, relType) { // 先针对用户头像封装
-    return new Promise((resolve, reject) => {
+  async avatarUpload(pubAccountId, relType) { // 先针对用户头像封装
+    await new Promise((resolve, reject) => {
       if (process.browser) {
         let input = document.getElementById(domId)
         if (input == null) {

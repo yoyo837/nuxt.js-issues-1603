@@ -33,6 +33,9 @@
   .el-card__body {
     padding: 8px;
     color: #666;
+    &:empty {
+      padding: 0;
+    }
     .el-card__edge {
       margin: -8px;
       .el-button {
