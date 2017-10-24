@@ -11,7 +11,7 @@ cd /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/
 
 echo \# workspace/ydmap-ssr-portal/:
 
-git checkout master
+# git checkout master
 
 git pull
 
@@ -19,7 +19,7 @@ cd ./pages
 
 echo \# workspace/ydmap-ssr-portal/pages:
 
-git checkout master
+# git checkout master
 
 # git reset --hard HEAD
 

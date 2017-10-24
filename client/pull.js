@@ -10,7 +10,7 @@ module.exports = {
         return
       }
       shell.cd('../pages')
-      shell.exec('git checkout master')
+      // shell.exec('git checkout master')
       shell.exec('git pull')
 
       shell.cd('../')
