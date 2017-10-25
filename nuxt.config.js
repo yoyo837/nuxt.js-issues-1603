@@ -39,7 +39,7 @@ function setSourceMapForLoader(rule) {
   }
 }
 
-const ignoreRouter = [/^\/vue-features\//]
+const ignoreRouter = [/^\/vue-features\//, /^\./]
 
 module.exports = {
   // devProxy开发接口调用对接地址
