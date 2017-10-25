@@ -25,6 +25,13 @@
           }
         }
       }
+      .el-textarea {
+        .el-textarea__inner {
+          border: none;
+          resize: none;
+          padding: 3px 0;
+        }
+      }
       .el-form-item__error {
         display: none;
       }
