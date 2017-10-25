@@ -11,22 +11,13 @@ cd /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/
 
 echo \# workspace/ydmap-ssr-portal/:
 
-# git checkout master
-
-git pull
+./git.sh
 
 cd ./pages
 
 echo \# workspace/ydmap-ssr-portal/pages:
 
-# git checkout master
-
-# git reset --hard HEAD
-
-# git clean -f -d
-
-#git pull
-git pull
+./git.sh
 
 cp -r /data/ydmap/services/jenkins/test/workspace/ydmap-ssr-portal/ /data/ydmap/node/
 
