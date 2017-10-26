@@ -132,6 +132,7 @@ export default {
     return url
   },
   async get(url, params, options = {}) {
+    const onceConfig = {}
     const result = await new Promise(function(resolve, reject) {
       // 合并地址栏参数和对象参数
       const sps = url.split('?')
@@ -147,7 +148,7 @@ export default {
       const hash = url.split('#')[1]
       const search = utils.serialize(params0)
       url = `${sps[0]}${search.length ? `?${search}` : ''}${hash ? `#${hash}` : ''}`
-      axios.get(url, _.assign(requestConfig, {
+      axios.get(url, _.assign({}, requestConfig, onceConfig, {
         [custOptKey]: _.assign(options, {
           resolve,
           reject
@@ -157,6 +158,7 @@ export default {
     return result
   },
   async post(url, params, options = {}) {
+    const onceConfig = {}
     if (options.form == null && options.multiForm == null) { // 默认表单提交
       options.form = true
     }
@@ -167,8 +169,8 @@ export default {
       }
       params = formParams
     } else if (options.multiForm) {
-      options.headers = options.headers || {}
-      options.headers['Content-Type'] = 'multipart/form-data'
+      onceConfig.headers = options.headers || {}
+      onceConfig.headers['Content-Type'] = 'multipart/form-data'
       const formData = new FormData()
       for (let key in params) {
         const value = params[key]
@@ -179,9 +181,10 @@ export default {
         }
       }
       params = formData
+      onceConfig.onUploadProgress = options.onUploadProgress
     }
     const result = await new Promise(function(resolve, reject) {
-      axios.post(url, params, _.assign(requestConfig, {
+      axios.post(url, params, _.assign({}, requestConfig, onceConfig, {
         [custOptKey]: _.assign(options, {
           resolve,
           reject
