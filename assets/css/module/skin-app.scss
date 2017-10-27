@@ -168,25 +168,23 @@ a {
 
 // fixed
 .fixed-bt {
-  padding: 5px;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
-  button {
-    width: 95%;
-  }
-  a {
-    display: block;
-    width: 100;
-  }
-  .el-button + .el-button,
-  button + button,
-  a + button,
-  a + a,
-  button + a {
-    margin: 5px 0 0 0;
+
+  .el-button {
+    margin: 0;
+    background-color: white;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 13px 15px;
+    border-radius: 0;
+    &.primary-button {
+      color: white;
+      background-color: #F26A3E;
+    }
   }
 }
 
