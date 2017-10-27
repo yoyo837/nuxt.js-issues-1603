@@ -85,6 +85,8 @@
   }
 }
 
-.el-card + .el-card {
+.el-card + .el-card,
+.el-card + .page-loadmore-wrapper,
+.el-card + .mint-loadmore {
   margin-top: 8px;
 }

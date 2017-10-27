@@ -119,9 +119,6 @@ a {
   .operation {
     margin-top: 50px;
   }
-  .mint-loadmore {
-    margin-top: 8px;
-  }
 }
 
 // toast
@@ -198,5 +195,6 @@ a {
 @import './dialog.scss';
 @import './form.scss';
 @import './card.scss';
+@import './loadmore.scss';
 @import './nav-menu.scss';
 @import './step.scss';
