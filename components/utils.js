@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import moment from 'moment'
 
 const CDN_STATIC_HOST = '//cdnstatic.ydmap.com.cn'
 const CDN_IMG_HOST = '//cdnimg.ydmap.com.cn'
@@ -115,5 +116,29 @@ export default {
         return name.length > 0 && name !== 'no-scroll'
       }).join(' ')
     }
+  },
+  DealStatusMap: {
+    // NEWS(0, "订单开始"),
+    // NOT_PAY(1, "待支付"),
+    // NOT_USE(2, "待使用"),
+    // COMPLETE(3, "已完成"),
+    // CANCEL(4, "已取消"),
+    // REFUNDED(5, "已退款");
+    NOT_PAY: 1,
+    REFUNDED: 5,
+    COMPLETE: 3,
+    CANCEL: 4
+  },
+  formatDateTime(long) {
+    if (long == null) {
+      return null
+    }
+    return moment(long).format('YYYY-MM-DD HH:mm:ss')
+  },
+  formatDate(long) {
+    if (long == null) {
+      return null
+    }
+    return moment(long).format('YYYY-MM-DD')
   }
 }
