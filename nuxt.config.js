@@ -1,43 +1,43 @@
 // const fsextra = require('fs-extra')
 // const _ = require('lodash')
-const sourceMapLoader = ['vue-style-loader', 'css-loader', 'postcss-loader', 'stylus-loader', 'sass-loader', 'less-loader']
+// const sourceMapLoader = ['vue-style-loader', 'css-loader', 'postcss-loader', 'stylus-loader', 'sass-loader', 'less-loader']
 
-function setSourceMapForLoader(rule) {
-  if (rule == null) {
-    return
-  }
-  const options = rule.options = rule.options || {}
-  if (sourceMapLoader.indexOf(rule.loader) >= 0) {
-    options.sourceMap = true
-    return
-  }
-  // vue-loader 和 babel-loader 单独处理
-  if (rule.loader === 'babel-loader') {
-    rule.options.cacheDirectory = true
-    return
-  }
-  if (rule.loader === 'vue-loader') {
-    rule.options.cssSourceMap = true
-    if (rule.options.postcss) {
-      rule.options.postcss.sourceMap = true
-    }
-    if (rule.options.loaders) {
-      for (var key in rule.options.loaders) {
-        const val = rule.options.loaders[key]
-        if (val == null) {
-          continue
-        }
-        if (val instanceof Array) {
-          val.forEach(item => {
-            setSourceMapForLoader(item)
-          })
-        } else {
-          setSourceMapForLoader(val)
-        }
-      }
-    }
-  }
-}
+// function setSourceMapForLoader(rule) {
+//   if (rule == null) {
+//     return
+//   }
+//   const options = rule.options = rule.options || {}
+//   if (sourceMapLoader.indexOf(rule.loader) >= 0) {
+//     options.sourceMap = true
+//     return
+//   }
+//   // vue-loader 和 babel-loader 单独处理
+//   if (rule.loader === 'babel-loader') {
+//     rule.options.cacheDirectory = true
+//     return
+//   }
+//   if (rule.loader === 'vue-loader') {
+//     rule.options.cssSourceMap = true
+//     if (rule.options.postcss) {
+//       rule.options.postcss.sourceMap = true
+//     }
+//     if (rule.options.loaders) {
+//       for (var key in rule.options.loaders) {
+//         const val = rule.options.loaders[key]
+//         if (val == null) {
+//           continue
+//         }
+//         if (val instanceof Array) {
+//           val.forEach(item => {
+//             setSourceMapForLoader(item)
+//           })
+//         } else {
+//           setSourceMapForLoader(val)
+//         }
+//       }
+//     }
+//   }
+// }
 
 const ignoreRouter = [/^\/vue-features\//, /^\./]
 
@@ -109,17 +109,17 @@ module.exports = {
       //   })
       // }
 
-      config.devtool = '#source-map'
+      // config.devtool = '#source-map'
 
-      rules.forEach(function(rule) {
-        if (rule.loader) {
-          setSourceMapForLoader(rule)
-        } else if (rule.use instanceof Array) {
-          rule.use.forEach(r => {
-            setSourceMapForLoader(r)
-          })
-        }
-      })
+      // rules.forEach(function(rule) {
+      //   if (rule.loader) {
+      //     setSourceMapForLoader(rule)
+      //   } else if (rule.use instanceof Array) {
+      //     rule.use.forEach(r => {
+      //       setSourceMapForLoader(r)
+      //     })
+      //   }
+      // })
     }
   },
   /*
