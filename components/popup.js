@@ -7,7 +7,7 @@ Vue.use(Loading)
 Vue.use(Indicator)
 Vue.component(EMB.name, EMB)
 Vue.component(Toast.name, Toast)
-Vue.component(MMB.name)
+Vue.component(MMB.name, MMB)
 
 const IndicatorSingle = {
   close() {
